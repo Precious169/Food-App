@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MPR Foods | Fresh, Hot &amp; Delicious Fried Chicken</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Poppins:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e31837",
+                        "secondary": "#ff6b35",
+                        "background-light": "#fff8f0",
+                        "background-dark": "#211113",
+                    },
+                    fontFamily: {
+                        "display": ["Poppins", "Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#181112] dark:text-white transition-colors duration-300">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e5dcdd] dark:border-[#3d2a2d] px-10 py-4 sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-50">
+<div class="flex items-center gap-12">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-primary text-2xl font-black leading-tight tracking-tight uppercase">MPR Foods</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-8">
+<a class="text-[#181112] dark:text-white text-sm font-semibold hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-[#181112] dark:text-white text-sm font-semibold hover:text-primary transition-colors" href="#">Menu</a>
+<a class="text-[#181112] dark:text-white text-sm font-semibold hover:text-primary transition-colors" href="#">Deals</a>
+<a class="text-[#181112] dark:text-white text-sm font-semibold hover:text-primary transition-colors" href="#">Locations</a>
+<a class="text-[#181112] dark:text-white text-sm font-semibold hover:text-primary transition-colors" href="#">About Us</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-full h-full">
+<div class="text-[#886369] flex border-none bg-white dark:bg-[#2d1a1c] items-center justify-center pl-4 rounded-l-full">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-white dark:bg-[#2d1a1c] focus:ring-0 rounded-r-full text-[#181112] dark:text-white placeholder:text-[#886369] px-4 pl-2 text-sm" placeholder="Find your flavor..." value=""/>
+</div>
+</label>
+<div class="flex gap-3">
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center rounded-full h-10 px-6 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
+<span>Order Now</span>
+</button>
+<button class="flex items-center justify-center rounded-full h-10 w-10 bg-white dark:bg-[#2d1a1c] text-[#181112] dark:text-white border border-[#e5dcdd] dark:border-[#3d2a2d]">
+<span class="material-symbols-outlined text-xl">person</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<!-- HeroSection -->
+<section class="max-w-[1440px] mx-auto px-4 md:px-10 py-6">
+<div class="@container">
+<div class="relative overflow-hidden rounded-xl md:rounded-xl lg:rounded-xl">
+<div class="flex min-h-[600px] flex-col gap-8 bg-cover bg-center bg-no-repeat items-start justify-center px-8 md:px-20 py-20" data-alt="Steam rising from golden crispy fried chicken on a platter" style='background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 70%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAfXsYXYNSLJHH3R-0wkhh8iNLG1vcZsOtv94U8IZSxjOoOcWdfkt42ySHPuqWHukLFDxhgAyxH4RVR79piIR2icFbxA4-gHLBXbBv0XsQmhrm3DJFGIJecJ8dBvZgarnCMV4-qr9fvz3D8vDNlCAAe9BQN8MOetAfAKhwuOcQW38CoGK3xgCl_Fz1iiBMre5jO0MBDbwvlyNRlIxBJLEPYvRAdrTuH5Hxm1hpQls65pbxJuscJWll2U5TXaUJH-b9Ia2TXwjt4Hehs");'>
+<div class="flex flex-col gap-6 max-w-[640px]">
+<div class="inline-flex items-center gap-2 bg-secondary/90 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">local_fire_department</span>
+                                        Freshly Prepared
+                                    </div>
+<h1 class="text-white text-5xl md:text-7xl font-black leading-tight tracking-tight">
+                                        Fresh, Hot &amp; <span class="text-secondary">Delicious</span> - Delivered to Your Door
+                                    </h1>
+<p class="text-white/90 text-lg md:text-xl font-normal leading-relaxed">
+                                        Experience the best fried chicken in the UK, prepared fresh with our secret 11-spice blend and delivered piping hot.
+                                    </p>
+<div class="flex flex-wrap gap-4 mt-4">
+<button class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-primary text-white text-lg font-bold shadow-xl shadow-primary/30 hover:bg-primary/90 transition-colors">
+<span>Start Order</span>
+</button>
+<button class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-white/10 backdrop-blur-md border-2 border-white/30 text-white text-lg font-bold hover:bg-white/20 transition-colors">
+<span>View Menu</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SectionHeader: Featured -->
+<section class="max-w-[1440px] mx-auto px-10 pt-16">
+<div class="flex items-end justify-between border-b border-[#e5dcdd] dark:border-[#3d2a2d] pb-6">
+<div>
+<p class="text-secondary font-bold uppercase tracking-widest text-sm mb-2">Popular Choices</p>
+<h2 class="text-[#181112] dark:text-white text-4xl font-black leading-tight">Our Featured Menu</h2>
+</div>
+<a class="text-primary font-bold flex items-center gap-2 hover:underline" href="#">
+                            View Full Menu <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- ImageGrid: Menu Items -->
+<section class="max-w-[1440px] mx-auto px-6 py-10">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+<!-- Item 1 -->
+<div class="flex flex-col gap-4 group cursor-pointer">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl overflow-hidden shadow-sm group-hover:shadow-xl transition-all group-hover:-translate-y-2" data-alt="Bucket of signature crispy fried chicken" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBycEgTsqtc1h6kFBJD9bDxQ0gq9ELNLKMQVl1ZQ03tPAWntZaA8D9cNiYxA7iZ_dmAQ9oRiHgKKXlyqk6emngb6sy56_nydRPsrtGj38ELm4X1InhFgDaNxO8TL0FOqjneedEiJtNMO-x6U44kpRGRuAvdv96lqhoG3mJeoqT2_3aKI2g8JU1UA30liclQDbsf5DKT9adWVcK3TT99jG6ao3IAED_6B0p1IQeZyYOV8FSQgXYeAyvq1FfSCGVvwKirCaEumhe6mPf5");'>
+</div>
+<div>
+<h3 class="text-[#181112] dark:text-white text-lg font-bold">Signature Fried Chicken</h3>
+<div class="flex justify-between items-center mt-1">
+<p class="text-primary text-base font-black">From £5.99</p>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex flex-col gap-4 group cursor-pointer">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl overflow-hidden shadow-sm group-hover:shadow-xl transition-all group-hover:-translate-y-2" data-alt="Spicy chicken burger with lettuce and mayo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAVbUJuZ2WdBjVHFD3wytlwFCBwNhwLj2itqVitucZ30zdrMwRpexhdx8nvTs7BE9iemM04kMR0WfXvjS6xOv4DFVy_OC0Fnw3kxkEOlV2rQKRCtwDZ6GaCvVgBQgMSLZwoPxrJ6dK64tyhZwPk8JMPmFeBUDwL5wKxWjA-vEj0-ngdpnD4QW1l2LZiZOYEjuQS-q7A3tTtMsXBlMIdr43WFKTU-CclclbVr3JumOAk1w0hx5LSqehZqhtOnGdbsjN_mUqaCae4bA4t");'>
+</div>
+<div>
+<h3 class="text-[#181112] dark:text-white text-lg font-bold">Spicy Zinger Burger</h3>
+<div class="flex justify-between items-center mt-1">
+<p class="text-primary text-base font-black">From £4.49</p>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex flex-col gap-4 group cursor-pointer">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl overflow-hidden shadow-sm group-hover:shadow-xl transition-all group-hover:-translate-y-2" data-alt="Pile of spicy fried chicken wings" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2XLVWJ0X6S_O6UC-32NooI_7UIp2TY7wOukum8vFw7ZD8eoNl1BcgHhXXcyqe7Pm0f064lqSENfFR5Q5fwXHzIKWjxKrYL6i4hzxoffLh--QEHp9MAJffYxVe1pS1K0Sct86BiBRWjEidQi-IwPA-GA850DqtdgWKttW_uGlXJWP3Myo7qNGrG6Rl1oYXL7oTuLHgaar1TiK2jKK4LERA-HogZyU1tU2mPdiKMjH9ClQc733JBvrnJsUbJi3f5hvj8F_uEh5poCc0");'>
+</div>
+<div>
+<h3 class="text-[#181112] dark:text-white text-lg font-bold">Crispy Wings</h3>
+<div class="flex justify-between items-center mt-1">
+<p class="text-primary text-base font-black">From £3.99</p>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex flex-col gap-4 group cursor-pointer">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl overflow-hidden shadow-sm group-hover:shadow-xl transition-all group-hover:-translate-y-2" data-alt="Large family bucket with sides and drinks" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCexeg8OsIis9IS3rGLefL-uLkANH3FctU8RyuhGZyl8Y5wr4qw-hb4nzOJL0cUetZEDbX6VtpWSL86d7_0QxVHRg8fF0By6FJfVCrZ8T1fwKqQ4cGmiYfMSNiF4UShaWE0PruO4CDkFL3G0RGxSOX-52endRHgJrEdoR8pVrsRcuMFJ1bcrZFOcgmIEt8BtMoYabm7S3YltsmyG0QgSErLn8ks9i1wypN_-X6j6LiHY_AbaVviVZwQlakOjvPuk6Ba7dJ8FXLu0Owk");'>
+</div>
+<div>
+<h3 class="text-[#181112] dark:text-white text-lg font-bold">Family Feast</h3>
+<div class="flex justify-between items-center mt-1">
+<p class="text-primary text-base font-black">From £15.99</p>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="flex flex-col gap-4 group cursor-pointer">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl overflow-hidden shadow-sm group-hover:shadow-xl transition-all group-hover:-translate-y-2" data-alt="Grilled chicken wrap with vegetables" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbgM5H2WNKXtoHfTakwCsfG1Gkvfr8QJ48BOBewzrIUog2hTiovEUoDeo4EraMHYpqy_-MtZEBSPj8nv3SPtLdFq3IrujEVf9UzdnCEXBlN6-zKpTPBJfqDjpJY7S98DzbyeitgpFrqYr6DTkXzQ-ttEKph__RO5XinNCcuXLxZO3SFchyabiWgANedUKiWJv-4atnYKo0KElClxVfsTDkoQh_hNPwV41cqqwmTwOUIY_tJNBe0zH9IE9dTdyAczi2kPuIqNbAS7e1");'>
+</div>
+<div>
+<h3 class="text-[#181112] dark:text-white text-lg font-bold">BBQ Chicken Wrap</h3>
+<div class="flex justify-between items-center mt-1">
+<p class="text-primary text-base font-black">From £4.99</p>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+</div>
+</div>
+<!-- Item 6 -->
+<div class="flex flex-col gap-4 group cursor-pointer">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl overflow-hidden shadow-sm group-hover:shadow-xl transition-all group-hover:-translate-y-2" data-alt="Fresh garden salad with grilled chicken" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDuRlZa6V483HwuSA-VqRQOMeAKwAYGW6h8o9HQXoUwxDmvqfTvlPrO3TCA9rHLkVOMh1X-vQTqrGDUW1CAzmqTINi-MeFsvZb8fMG5Ui4W7dQE0RVM-tuSGq7wDwdqvjVtpdjB-Hk4nBxSclgh-jB3HeHUhNE7lrZH87MOb4qXntb3ZBdNbV6tbdEeg0fMqflLxejqCr1kpptF9wec0XMh-mn4F1BmoPrQJ5bwwlCR9rQyOzj67zJBFzOqc8Zgt9Q4JSQdKYrM5cgx");'>
+</div>
+<div>
+<h3 class="text-[#181112] dark:text-white text-lg font-bold">Garden Salad</h3>
+<div class="flex justify-between items-center mt-1">
+<p class="text-primary text-base font-black">From £3.49</p>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FeatureSection: Why Choose Us -->
+<section class="bg-white dark:bg-[#1a0d0f] py-20 mt-10">
+<div class="max-w-[1440px] mx-auto px-10">
+<div class="flex flex-col gap-12 @container">
+<div class="flex flex-col gap-4 items-center text-center">
+<h2 class="text-[#181112] dark:text-white text-4xl md:text-5xl font-black leading-tight max-w-[720px]">
+                                    The Secrets Behind Our Taste
+                                </h2>
+<p class="text-[#886369] dark:text-[#a88d91] text-lg font-normal max-w-[720px]">
+                                    We take pride in every meal we serve, ensuring quality and taste in every bite.
+                                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex flex-col gap-5 rounded-xl border border-[#e5dcdd] dark:border-[#3d2a2d] bg-background-light dark:bg-background-dark p-8 hover:border-primary transition-colors">
+<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">eco</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-[#181112] dark:text-white text-xl font-bold leading-tight">Fresh Ingredients</h3>
+<p class="text-[#886369] dark:text-[#a88d91] text-base font-normal leading-relaxed">
+                                            We use only 100% fresh, farm-raised chicken, delivered daily to our kitchens. Never frozen.
+                                        </p>
+</div>
+</div>
+<div class="flex flex-col gap-5 rounded-xl border border-[#e5dcdd] dark:border-[#3d2a2d] bg-background-light dark:bg-background-dark p-8 hover:border-primary transition-colors">
+<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">delivery_dining</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-[#181112] dark:text-white text-xl font-bold leading-tight">Fast Delivery</h3>
+<p class="text-[#886369] dark:text-[#a88d91] text-base font-normal leading-relaxed">
+                                            Our optimized delivery network ensures your food arrives piping hot in under 30 minutes.
+                                        </p>
+</div>
+</div>
+<div class="flex flex-col gap-5 rounded-xl border border-[#e5dcdd] dark:border-[#3d2a2d] bg-background-light dark:bg-background-dark p-8 hover:border-primary transition-colors">
+<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">restaurant_menu</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-[#181112] dark:text-white text-xl font-bold leading-tight">Authentic Recipe</h3>
+<p class="text-[#886369] dark:text-[#a88d91] text-base font-normal leading-relaxed">
+                                            Our secret blend of 11 herbs and spices has been perfected since 1995 for that unique MPR flavor.
+                                        </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works Section -->
+<section class="py-20 max-w-[1440px] mx-auto px-10">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-black mb-4">How It Works</h2>
+<p class="text-[#886369] max-w-2xl mx-auto">Getting your favorite chicken is easier than ever. Just three simple steps to deliciousness.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+<div class="hidden md:block absolute top-1/2 left-1/4 right-1/4 h-0.5 bg-dashed bg-primary/20 -z-10"></div>
+<div class="flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-secondary text-white flex items-center justify-center text-3xl font-black mb-6 shadow-xl shadow-secondary/20">1</div>
+<h3 class="text-xl font-bold mb-2">Pick Your Favorites</h3>
+<p class="text-[#886369]">Browse our extensive menu of chicken, burgers, and wraps.</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-primary text-white flex items-center justify-center text-3xl font-black mb-6 shadow-xl shadow-primary/20">2</div>
+<h3 class="text-xl font-bold mb-2">We Cook Fresh</h3>
+<p class="text-[#886369]">Our chefs prepare your order immediately with high-quality ingredients.</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-secondary text-white flex items-center justify-center text-3xl font-black mb-6 shadow-xl shadow-secondary/20">3</div>
+<h3 class="text-xl font-bold mb-2">Hot Delivery</h3>
+<p class="text-[#886369]">Your meal is packed in thermal bags and rushed to your location.</p>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="bg-background-light dark:bg-background-dark py-20 border-t border-[#e5dcdd] dark:border-[#3d2a2d]">
+<div class="max-w-[1440px] mx-auto px-10">
+<h2 class="text-4xl font-black text-center mb-16">What Our Fans Say</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white dark:bg-[#2d1a1c] p-8 rounded-xl shadow-sm border border-[#e5dcdd] dark:border-[#3d2a2d]">
+<div class="flex gap-1 text-secondary mb-4">
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+</div>
+<p class="text-[#181112] dark:text-white font-medium italic mb-6">"The best fried chicken in Manchester! It's always crunchy on the outside and incredibly juicy on the inside."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-cover" data-alt="Portrait of a satisfied customer" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD0R86D9Of0MV4TUGmmz5mz1cLJHZxAJGA18LNAjzXvcHeh4mjjyyoyRp-CVbVe128p551Crb4ih_C_0uNo3ivznL6Nwed9Ey_uEL9ttAQNrbzVzB3wAiutfCNiG3F10Spt1JE235GorWQzzkWiK-X8585mqcn_AD2uRAU3d4MFLIq5wZ1zKpKmZU2kDMnH_Mgiy5RIDDVQXZ3ZXMrIk68F-xnN4IHTqgBcbvUoAu356buB4O4YAyGz7KslOqcC3P4Iy_soVuRK3fII')"></div>
+<div>
+<p class="font-bold">David Smith</p>
+<p class="text-xs text-[#886369]">Salford, Manchester</p>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-[#2d1a1c] p-8 rounded-xl shadow-sm border border-[#e5dcdd] dark:border-[#3d2a2d]">
+<div class="flex gap-1 text-secondary mb-4">
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+</div>
+<p class="text-[#181112] dark:text-white font-medium italic mb-6">"The Spicy Zinger Burger is actual perfection. Delivery was super fast even during Friday night rush!"</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-cover" data-alt="Portrait of a regular customer" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC4W0WId9I0fQaHcJ53HRdMv7WO5UmKjuCHCOcCCGwVOsPRSzOi8-BEaDjaY3G8Ohmvf0qH7eWStu99bGJpPBB1cfvBC10BKve-StLNIfZTOCpY8PjZeQGL_92MB1zJFy5tkA2L3vVOH0fXzh1r8uQqKvBbKyGgZoFukknkUewMSA2lIt0VRRPpntZKJRsWArmRKjUhhmUTCCnwaGeq5R5x5W_P5RfeJBPEeXeFT4txYLWvBQgdzDJ5nIgy-1Hy4bJQkYn6NxsIZq2E')"></div>
+<div>
+<p class="font-bold">Sarah Jenkins</p>
+<p class="text-xs text-[#886369]">Deansgate, Manchester</p>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-[#2d1a1c] p-8 rounded-xl shadow-sm border border-[#e5dcdd] dark:border-[#3d2a2d]">
+<div class="flex gap-1 text-secondary mb-4">
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+<span class="material-symbols-outlined fill-1">star</span>
+</div>
+<p class="text-[#181112] dark:text-white font-medium italic mb-6">"Family Feast is our weekend tradition. Great value for money and the sides are just as good as the chicken."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-cover" data-alt="Portrait of a customer" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDHpEP88N13UZf5tyWU7IBRiAlbjRQFsT-3hevWw3aifm2kPehiqeCA-PeE7AvM6I2JSzh6Vzub2GACoAQABdxev7PsyGPe1YZsSc3YZSiDEIzk0N6iPzHU0ySDRJoucZdeWR6u0AzDGtoByItOUQ8ge_vSS77W59TWJZg-iibqD2l82MjdrjOf5OqkfPve6abA0uzjOu916Fzzcv7jJqEFTsNGQfEMLOdMgKsmOyNT6cXIY41sDo5wuELpPbmKft3BCLFgvVCm4Fs9')"></div>
+<div>
+<p class="font-bold">Michael Roe</p>
+<p class="text-xs text-[#886369]">Old Trafford</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background-dark text-white py-16">
+<div class="max-w-[1440px] mx-auto px-10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-white/10 pb-12">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-2xl font-black tracking-tight uppercase">MPR Foods</h2>
+</div>
+<p class="text-white/60 leading-relaxed">The UK's favorite destination for authentic, fresh, and piping hot fried chicken since 1995.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined">social_leaderboard</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined">photo_camera</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<h4 class="text-lg font-bold">Find Us</h4>
+<div class="flex flex-col gap-4 text-white/60">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<p>123 Oxford Street,<br/>Manchester, M1 4EE</p>
+</div>
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-primary">call</span>
+<p>0161 555 0123</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<h4 class="text-lg font-bold">Opening Hours</h4>
+<div class="flex flex-col gap-2 text-white/60">
+<div class="flex justify-between border-b border-white/5 pb-2">
+<span>Mon - Thu</span>
+<span>11:00 - 23:00</span>
+</div>
+<div class="flex justify-between border-b border-white/5 pb-2">
+<span>Fri - Sat</span>
+<span>11:00 - 01:00</span>
+</div>
+<div class="flex justify-between">
+<span>Sunday</span>
+<span>12:00 - 22:00</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<h4 class="text-lg font-bold">Newsletter</h4>
+<p class="text-white/60">Get exclusive deals and the latest menu updates.</p>
+<div class="flex flex-col gap-3">
+<input class="bg-white/5 border-none rounded-full px-6 py-3 focus:ring-2 focus:ring-primary text-sm" placeholder="Your email address" type="email"/>
+<button class="bg-primary text-white font-bold py-3 rounded-full hover:bg-primary/90 transition-colors">Subscribe</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center py-8 text-white/40 text-sm gap-4">
+<p>© 2024 MPR Foods UK. All Rights Reserved.</p>
+<div class="flex gap-8">
+<a class="hover:text-white" href="#">Privacy Policy</a>
+<a class="hover:text-white" href="#">Terms of Service</a>
+<a class="hover:text-white" href="#">Cookies</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</body></html>
