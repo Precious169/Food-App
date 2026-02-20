@@ -16,7 +16,7 @@ export default function Header() {
                     <Link className="text-[#181112] dark:text-white text-sm font-semibold hover:text-primary transition-colors" href="/">Home</Link>
                     <Link className="text-[#181112] dark:text-white text-sm font-semibold hover:text-primary transition-colors" href="/menu">Menu</Link>
                     <Link className="text-[#181112] dark:text-white text-sm font-semibold hover:text-primary transition-colors" href="/deals">Deals</Link>
-                    <Link className="text-[#181112] dark:text-white text-sm font-semibold hover:text-primary transition-colors" href="/locations">Locations</Link>
+                    <Link className="text-[#181112] dark:text-white text-sm font-semibold hover:text-primary transition-colors" href="/location">Locations</Link>
                     <Link className="text-[#181112] dark:text-white text-sm font-semibold hover:text-primary transition-colors" href="/contact">Contact Us</Link>
                 </nav>
             </div>
@@ -30,12 +30,12 @@ export default function Header() {
                     </div>
                 </label>
                 <div className="flex gap-3">
-                    <button className="flex min-w-[100px] cursor-pointer items-center justify-center rounded-full h-10 px-6 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
+                    <Link href="/menu" className="flex min-w-[100px] cursor-pointer items-center justify-center rounded-full h-10 px-6 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
                         <span>Order Now</span>
-                    </button>
-                    <button className="flex items-center justify-center rounded-full h-10 w-10 bg-white dark:bg-[#2d1a1c] text-[#181112] dark:text-white border border-[#e5dcdd] dark:border-[#3d2a2d]">
+                    </Link>
+                    <Link href="/auth/login" className="flex items-center justify-center rounded-full h-10 w-10 bg-white dark:bg-[#2d1a1c] text-[#181112] dark:text-white border border-[#e5dcdd] dark:border-[#3d2a2d]">
                         <span className="material-symbols-outlined text-xl">person</span>
-                    </button>
+                    </Link>
                 </div>
             </div>
         </header>

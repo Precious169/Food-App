@@ -31,12 +31,12 @@ export default function Home() {
                       Experience the best fried chicken in the UK, prepared fresh with our secret 11-spice blend and delivered piping hot.
                     </p>
                     <div className="flex flex-wrap gap-4 mt-4">
-                      <button className="flex min-w-[160px] cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-primary text-white text-lg font-bold shadow-xl shadow-primary/30 hover:bg-primary/90 transition-colors">
+                      <Link href="/auth/signup" className="flex min-w-[160px] cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-primary text-white text-lg font-bold shadow-xl shadow-primary/30 hover:bg-primary/90 transition-colors">
                         <span>Start Order</span>
-                      </button>
-                      <button className="flex min-w-[160px] cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-white/10 backdrop-blur-md border-2 border-white/30 text-white text-lg font-bold hover:bg-white/20 transition-colors">
+                      </Link>
+                      <Link href="/menu" className="flex min-w-[160px] cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-white/10 backdrop-blur-md border-2 border-white/30 text-white text-lg font-bold hover:bg-white/20 transition-colors">
                         <span>View Menu</span>
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -61,86 +61,86 @@ export default function Home() {
           <section className="max-w-[1440px] mx-auto px-6 py-10">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
               {/* Item 1 */}
-              <div className="flex flex-col gap-4 group cursor-pointer">
+              <div className="flex flex-col bg-white dark:bg-[#2d1a1c] border border-[#e5dcdd] dark:border-[#3d2a2d] rounded-2xl overflow-hidden group cursor-pointer transition-all hover:shadow-xl hover:border-primary">
                 <div
-                  className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl overflow-hidden shadow-sm group-hover:shadow-xl transition-all group-hover:-translate-y-2"
+                  className="w-full bg-center bg-no-repeat aspect-square bg-cover"
                   style={{ backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuBycEgTsqtc1h6kFBJD9bDxQ0gq9ELNLKMQVl1ZQ03tPAWntZaA8D9cNiYxA7iZ_dmAQ9oRiHgKKXlyqk6emngb6sy56_nydRPsrtGj38ELm4X1InhFgDaNxO8TL0FOqjneedEiJtNMO-x6U44kpRGRuAvdv96lqhoG3mJeoqT2_3aKI2g8JU1UA30liclQDbsf5DKT9adWVcK3TT99jG6ao3IAED_6B0p1IQeZyYOV8FSQgXYeAyvq1FfSCGVvwKirCaEumhe6mPf5")` }}
                 ></div>
-                <div>
-                  <h3 className="text-[#181112] dark:text-white text-lg font-bold">Signature Fried Chicken</h3>
-                  <div className="flex justify-between items-center mt-1">
-                    <p className="text-primary text-base font-black">From £5.99</p>
-                    <span className="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+                <div className="p-4">
+                  <h3 className="text-[#181112] dark:text-white text-sm font-bold truncate">Signature Fried Chicken</h3>
+                  <div className="flex justify-between items-center mt-2">
+                    <p className="text-primary text-sm font-black">£5.99</p>
+                    <span className="material-symbols-outlined text-secondary transition-transform group-hover:scale-110">add_circle</span>
                   </div>
                 </div>
               </div>
               {/* Item 2 */}
-              <div className="flex flex-col gap-4 group cursor-pointer">
+              <div className="flex flex-col bg-white dark:bg-[#2d1a1c] border border-[#e5dcdd] dark:border-[#3d2a2d] rounded-2xl overflow-hidden group cursor-pointer transition-all hover:shadow-xl hover:border-primary">
                 <div
-                  className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl overflow-hidden shadow-sm group-hover:shadow-xl transition-all group-hover:-translate-y-2"
+                  className="w-full bg-center bg-no-repeat aspect-square bg-cover"
                   style={{ backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuAVbUJuZ2WdBjVHFD3wytlwFCBwNhwLj2itqVitucZ30zdrMwRpexhdx8nvTs7BE9iemM04kMR0WfXvjS6xOv4DFVy_OC0Fnw3kxkEOlV2rQKRCtwDZ6GaCvVgBQgMSLZwoPxrJ6dK64tyhZwPk8JMPmFeBUDwL5wKxWjA-vEj0-ngdpnD4QW1l2LZiZOYEjuQS-q7A3tTtMsXBlMIdr43WFKTU-CclclbVr3JumOAk1w0hx5LSqehZqhtOnGdbsjN_mUqaCae4bA4t")` }}
                 ></div>
-                <div>
-                  <h3 className="text-[#181112] dark:text-white text-lg font-bold">Spicy Zinger Burger</h3>
-                  <div className="flex justify-between items-center mt-1">
-                    <p className="text-primary text-base font-black">From £4.49</p>
-                    <span className="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+                <div className="p-4">
+                  <h3 className="text-[#181112] dark:text-white text-sm font-bold truncate">Spicy Zinger Burger</h3>
+                  <div className="flex justify-between items-center mt-2">
+                    <p className="text-primary text-sm font-black">£4.49</p>
+                    <span className="material-symbols-outlined text-secondary transition-transform group-hover:scale-110">add_circle</span>
                   </div>
                 </div>
               </div>
               {/* Item 3 */}
-              <div className="flex flex-col gap-4 group cursor-pointer">
+              <div className="flex flex-col bg-white dark:bg-[#2d1a1c] border border-[#e5dcdd] dark:border-[#3d2a2d] rounded-2xl overflow-hidden group cursor-pointer transition-all hover:shadow-xl hover:border-primary">
                 <div
-                  className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl overflow-hidden shadow-sm group-hover:shadow-xl transition-all group-hover:-translate-y-2"
+                  className="w-full bg-center bg-no-repeat aspect-square bg-cover"
                   style={{ backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2XLVWJ0X6S_O6UC-32NooI_7UIp2TY7wOukum8vFw7ZD8eoNl1BcgHhXXcyqe7Pm0f064lqSENfFR5Q5fwXHzIKWjxKrYL6i4hzxoffLh--QEHp9MAJffYxVe1pS1K0Sct86BiBRWjEidQi-IwPA-GA850DqtdgWKttW_uGlXJWP3Myo7qNGrG6Rl1oYXL7oTuLHgaar1TiK2jKK4LERA-HogZyU1tU2mPdiKMjH9ClQc733JBvrnJsUbJi3f5hvj8F_uEh5poCc0")` }}
                 ></div>
-                <div>
-                  <h3 className="text-[#181112] dark:text-white text-lg font-bold">Crispy Wings</h3>
-                  <div className="flex justify-between items-center mt-1">
-                    <p className="text-primary text-base font-black">From £3.99</p>
-                    <span className="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+                <div className="p-4">
+                  <h3 className="text-[#181112] dark:text-white text-sm font-bold truncate">Crispy Wings</h3>
+                  <div className="flex justify-between items-center mt-2">
+                    <p className="text-primary text-sm font-black">£3.99</p>
+                    <span className="material-symbols-outlined text-secondary transition-transform group-hover:scale-110">add_circle</span>
                   </div>
                 </div>
               </div>
               {/* Item 4 */}
-              <div className="flex flex-col gap-4 group cursor-pointer">
+              <div className="flex flex-col bg-white dark:bg-[#2d1a1c] border border-[#e5dcdd] dark:border-[#3d2a2d] rounded-2xl overflow-hidden group cursor-pointer transition-all hover:shadow-xl hover:border-primary">
                 <div
-                  className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl overflow-hidden shadow-sm group-hover:shadow-xl transition-all group-hover:-translate-y-2"
+                  className="w-full bg-center bg-no-repeat aspect-square bg-cover"
                   style={{ backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuCexeg8OsIis9IS3rGLefL-uLkANH3FctU8RyuhGZyl8Y5wr4qw-hb4nzOJL0cUetZEDbX6VtpWSL86d7_0QxVHRg8fF0By6FJfVCrZ8T1fwKqQ4cGmiYfMSNiF4UShaWE0PruO4CDkFL3G0RGxSOX-52endRHgJrEdoR8pVrsRcuMFJ1bcrZFOcgmIEt8BtMoYabm7S3YltsmyG0QgSErLn8ks9i1wypN_-X6j6LiHY_AbaVviVZwQlakOjvPuk6Ba7dJ8FXLu0Owk")` }}
                 ></div>
-                <div>
-                  <h3 className="text-[#181112] dark:text-white text-lg font-bold">Family Feast</h3>
-                  <div className="flex justify-between items-center mt-1">
-                    <p className="text-primary text-base font-black">From £15.99</p>
-                    <span className="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+                <div className="p-4">
+                  <h3 className="text-[#181112] dark:text-white text-sm font-bold truncate">Family Feast</h3>
+                  <div className="flex justify-between items-center mt-2">
+                    <p className="text-primary text-sm font-black">£15.99</p>
+                    <span className="material-symbols-outlined text-secondary transition-transform group-hover:scale-110">add_circle</span>
                   </div>
                 </div>
               </div>
               {/* Item 5 */}
-              <div className="flex flex-col gap-4 group cursor-pointer">
+              <div className="flex flex-col bg-white dark:bg-[#2d1a1c] border border-[#e5dcdd] dark:border-[#3d2a2d] rounded-2xl overflow-hidden group cursor-pointer transition-all hover:shadow-xl hover:border-primary">
                 <div
-                  className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl overflow-hidden shadow-sm group-hover:shadow-xl transition-all group-hover:-translate-y-2"
+                  className="w-full bg-center bg-no-repeat aspect-square bg-cover"
                   style={{ backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbgM5H2WNKXtoHfTakwCsfG1Gkvfr8QJ48BOBewzrIUog2hTiovEUoDeo4EraMHYpqy_-MtZEBSPj8nv3SPtLdFq3IrujEVf9UzdnCEXBlN6-zKpTPBJfqDjpJY7S98DzbyeitgpFrqYr6DTkXzQ-ttEKph__RO5XinNCcuXLxZO3SFchyabiWgANedUKiWJv-4atnYKo0KElClxVfsTDkoQh_hNPwV41cqqwmTwOUIY_tJNBe0zH9IE9dTdyAczi2kPuIqNbAS7e1")` }}
                 ></div>
-                <div>
-                  <h3 className="text-[#181112] dark:text-white text-lg font-bold">BBQ Chicken Wrap</h3>
-                  <div className="flex justify-between items-center mt-1">
-                    <p className="text-primary text-base font-black">From £4.99</p>
-                    <span className="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+                <div className="p-4">
+                  <h3 className="text-[#181112] dark:text-white text-sm font-bold truncate">BBQ Chicken Wrap</h3>
+                  <div className="flex justify-between items-center mt-2">
+                    <p className="text-primary text-sm font-black">£4.99</p>
+                    <span className="material-symbols-outlined text-secondary transition-transform group-hover:scale-110">add_circle</span>
                   </div>
                 </div>
               </div>
               {/* Item 6 */}
-              <div className="flex flex-col gap-4 group cursor-pointer">
+              <div className="flex flex-col bg-white dark:bg-[#2d1a1c] border border-[#e5dcdd] dark:border-[#3d2a2d] rounded-2xl overflow-hidden group cursor-pointer transition-all hover:shadow-xl hover:border-primary">
                 <div
-                  className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl overflow-hidden shadow-sm group-hover:shadow-xl transition-all group-hover:-translate-y-2"
+                  className="w-full bg-center bg-no-repeat aspect-square bg-cover"
                   style={{ backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuDuRlZa6V483HwuSA-VqRQOMeAKwAYGW6h8o9HQXoUwxDmvqfTvlPrO3TCA9rHLkVOMh1X-vQTqrGDUW1CAzmqTINi-MeFsvZb8fMG5Ui4W7dQE0RVM-tuSGq7wDwdqvjVtpdjB-Hk4nBxSclgh-jB3HeHUhNE7lrZH87MOb4qXntb3ZBdNbV6tbdEeg0fMqflLxejqCr1kpptF9wec0XMh-mn4F1BmoPrQJ5bwwlCR9rQyOzj67zJBFzOqc8Zgt9Q4JSQdKYrM5cgx")` }}
                 ></div>
-                <div>
-                  <h3 className="text-[#181112] dark:text-white text-lg font-bold">Garden Salad</h3>
-                  <div className="flex justify-between items-center mt-1">
-                    <p className="text-primary text-base font-black">From £3.49</p>
-                    <span className="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+                <div className="p-4">
+                  <h3 className="text-[#181112] dark:text-white text-sm font-bold truncate">Garden Salad</h3>
+                  <div className="flex justify-between items-center mt-2">
+                    <p className="text-primary text-sm font-black">£3.49</p>
+                    <span className="material-symbols-outlined text-secondary transition-transform group-hover:scale-110">add_circle</span>
                   </div>
                 </div>
               </div>

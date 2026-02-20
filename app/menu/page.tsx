@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -46,30 +49,39 @@ const menuItems = [
     }
 ];
 
+const categories = ["All Items", "Chicken", "Burgers", "Sides", "Drinks", "Deals"];
+
 export default function MenuPage() {
+    const [activeCategory, setActiveCategory] = useState("All Items");
+
+    const filteredItems = activeCategory === "All Items"
+        ? menuItems
+        : menuItems.filter(item => item.category === activeCategory);
+
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="flex-1 max-w-[1440px] mx-auto w-full px-10 py-12">
+            <main className="flex-1 max-w-[1440px] mx-auto w-full px-6 md:px-10 py-12">
                 <div className="flex flex-col gap-12">
                     {/* Menu Hero */}
-                    <div className="relative h-[300px] rounded-2xl overflow-hidden">
+                    <div className="relative h-[250px] md:h-[300px] rounded-2xl overflow-hidden">
                         <div
                             className="absolute inset-0 bg-cover bg-center"
                             style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAhcb-VCadDD3F8-AdXFWz6tG6g-kAJ3BXMKDWAs0Z5TV2BigOayLusIVGzUOLWD0KYPi-txuXtk5wxOrx1tjhjrOTuog1oinCln_NrKHmYuD_sCiUYIMrgaJuKecV8-1Pft3qptVcJXM4x7jaYih_JLgu1pt0RLK4CALg-e1Lv0VyIm7la1-SaYAJLWPKp0OzqgMyoqIl6YchOfA6IT6fpyha2VeC5mwUBEmpPqbivsstsF3Vlw_GmVZlUFTGHe-ONckrP-x_McrOB")` }}
                         ></div>
                         <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
-                            <h1 className="text-white text-6xl font-black mb-4 tracking-tight">Our Full Menu</h1>
-                            <p className="text-white/80 text-xl max-w-2xl">Discover our legendary chicken, handcrafted burgers, and delicious sides.</p>
+                            <h1 className="text-white text-4xl md:text-6xl font-black mb-4 tracking-tight">Our Full Menu</h1>
+                            <p className="text-white/80 text-lg md:text-xl max-w-2xl">Discover our legendary chicken, handcrafted burgers, and delicious sides.</p>
                         </div>
                     </div>
 
                     {/* Category Tabs */}
-                    <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
-                        {["All Items", "Chicken", "Burgers", "Sides", "Drinks", "Deals"].map((cat) => (
+                    <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+                        {categories.map((cat) => (
                             <button
                                 key={cat}
-                                className={`px-8 py-3 rounded-full font-bold transition-all whitespace-nowrap ${cat === "All Items" ? "bg-primary text-white shadow-lg shadow-primary/20" : "bg-white dark:bg-[#2d1a1c] text-[#181112] dark:text-white border border-[#e5dcdd] dark:border-[#3d2a2d] hover:border-primary"}`}
+                                onClick={() => setActiveCategory(cat)}
+                                className={`px-8 py-3 rounded-full font-bold transition-all whitespace-nowrap cursor-pointer ${activeCategory === cat ? "bg-primary text-white shadow-lg shadow-primary/20" : "bg-white dark:bg-[#2d1a1c] text-[#181112] dark:text-white border border-[#e5dcdd] dark:border-[#3d2a2d] hover:border-primary"}`}
                             >
                                 {cat}
                             </button>
@@ -77,36 +89,50 @@ export default function MenuPage() {
                     </div>
 
                     {/* Menu Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                        {menuItems.map((item) => (
-                            <div key={item.id} className="bg-white dark:bg-[#2d1a1c] rounded-2xl overflow-hidden border border-[#e5dcdd] dark:border-[#3d2a2d] hover:shadow-2xl transition-all group flex flex-col">
-                                <div
-                                    className="h-64 bg-cover bg-center relative"
-                                    style={{ backgroundImage: `url("${item.image}")` }}
-                                >
-                                    {item.spicy && (
-                                        <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                                            <span className="material-symbols-outlined text-sm">local_fire_department</span> SPICY
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 min-h-[400px]">
+                        {filteredItems.length > 0 ? (
+                            filteredItems.map((item) => (
+                                <div key={item.id} className="bg-white dark:bg-[#2d1a1c] rounded-2xl overflow-hidden border border-[#e5dcdd] dark:border-[#3d2a2d] hover:shadow-2xl transition-all group flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                    <div
+                                        className="h-64 bg-cover bg-center relative"
+                                        style={{ backgroundImage: `url("${item.image}")` }}
+                                    >
+                                        {item.spicy && (
+                                            <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
+                                                <span className="material-symbols-outlined text-sm">local_fire_department</span> SPICY
+                                            </div>
+                                        )}
+                                        {item.veggie && (
+                                            <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
+                                                <span className="material-symbols-outlined text-sm">eco</span> VEGGIE
+                                            </div>
+                                        )}
+                                        {/* Glassmorphism Hover Overlay */}
+                                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 backdrop-blur-[2px] transition-all flex items-center justify-center">
+                                            <button className="bg-white/90 text-primary font-bold px-6 py-2 rounded-full transform scale-90 group-hover:scale-100 transition-all flex items-center gap-2">
+                                                <span className="material-symbols-outlined">zoom_in</span> Quick View
+                                            </button>
                                         </div>
-                                    )}
-                                    {item.veggie && (
-                                        <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                                            <span className="material-symbols-outlined text-sm">eco</span> VEGGIE
-                                        </div>
-                                    )}
-                                </div>
-                                <div className="p-8 flex-1 flex flex-col items-start gap-4">
-                                    <div className="flex justify-between items-start w-full gap-4">
-                                        <h3 className="text-2xl font-bold">{item.name}</h3>
-                                        <p className="text-primary text-2xl font-black">£{item.price}</p>
                                     </div>
-                                    <p className="text-[#886369] dark:text-[#a88d91] leading-relaxed">{item.description}</p>
-                                    <button className="mt-auto w-full bg-background-light dark:bg-background-dark border border-primary text-primary font-bold py-3 rounded-xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
-                                        <span className="material-symbols-outlined">add_shopping_cart</span> Add to Cart
-                                    </button>
+                                    <div className="p-8 flex-1 flex flex-col items-start gap-4">
+                                        <div className="flex justify-between items-start w-full gap-4">
+                                            <h3 className="text-xl md:text-2xl font-bold">{item.name}</h3>
+                                            <p className="text-primary text-xl md:text-2xl font-black">£{item.price}</p>
+                                        </div>
+                                        <p className="text-[#886369] dark:text-[#a88d91] leading-relaxed line-clamp-2">{item.description}</p>
+                                        <button className="mt-auto w-full bg-background-light dark:bg-background-dark border border-primary text-primary font-bold py-3 rounded-xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
+                                            <span className="material-symbols-outlined">add_shopping_cart</span> Add to Cart
+                                        </button>
+                                    </div>
                                 </div>
+                            ))
+                        ) : (
+                            <div className="col-span-full flex flex-col items-center justify-center py-20 text-center">
+                                <span className="material-symbols-outlined text-6xl text-[#e5dcdd] mb-4">restaurant</span>
+                                <h3 className="text-2xl font-bold text-[#886369]">No items found in this category</h3>
+                                <p className="text-[#a88d91]">We're currently updating our selection for {activeCategory}.</p>
                             </div>
-                        ))}
+                        )}
                     </div>
                 </div>
             </main>

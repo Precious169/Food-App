@@ -69,9 +69,9 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row justify-between items-center py-8 text-white/40 text-sm gap-4">
                     <p>© 2024 MPR Foods UK. All Rights Reserved.</p>
                     <div className="flex gap-8">
-                        <Link className="hover:text-white" href="#">Privacy Policy</Link>
-                        <Link className="hover:text-white" href="#">Terms of Service</Link>
-                        <Link className="hover:text-white" href="#">Cookies</Link>
+                        <Link className="hover:text-white" href="/privacy">Privacy Policy</Link>
+                        <Link className="hover:text-white" href="/terms">Terms of Service</Link>
+                        <Link className="hover:text-white" href="/cookies">Cookies</Link>
                     </div>
                 </div>
             </div>
