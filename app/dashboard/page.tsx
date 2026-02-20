@@ -2,25 +2,13 @@
 
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
+import AppSidebar from "../components/AppSidebar";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-
-const sidebarLinks = [
-    { href: "/dashboard", icon: "home", label: "Dashboard", active: true },
-    { href: "/dashboard/menu", icon: "restaurant_menu", label: "Order Food" },
-    { href: "/cart", icon: "shopping_cart", label: "My Cart" },
-    { href: "/order-tracking", icon: "local_shipping", label: "Track Order" },
-    { href: "/deals", icon: "local_offer", label: "Deals & Offers" },
-    { href: "/menu", icon: "menu_book", label: "Full Menu" },
-    { href: "/support", icon: "support_agent", label: "Customer Support" },
-    { href: "/contact", icon: "contact_mail", label: "Contact Us" },
-    { href: "/location", icon: "location_on", label: "Locations" },
-];
 
 export default function Dashboard() {
     const router = useRouter();
     const [user, setUser] = useState<any>(null);
-    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     useEffect(() => {
         const userData = sessionStorage.getItem("user");
@@ -31,84 +19,13 @@ export default function Dashboard() {
         }
     }, [router]);
 
-    const handleLogout = () => {
-        sessionStorage.removeItem("user");
-        window.dispatchEvent(new Event("user-update"));
-        router.push("/");
-    };
-
     if (!user) return null;
 
     return (
         <div className="flex flex-col min-h-screen bg-background-light dark:bg-background-dark">
             <Header />
-            <div className="flex flex-1 overflow-hidden">
-                {/* Sidebar */}
-                <>
-                    {/* Mobile overlay */}
-                    {sidebarOpen && (
-                        <div
-                            className="fixed inset-0 bg-black/50 z-40 xl:hidden"
-                            onClick={() => setSidebarOpen(false)}
-                        />
-                    )}
-
-                    <aside className={`fixed xl:sticky top-[65px] xl:top-0 left-0 z-50 xl:z-auto h-[calc(100vh-65px)] xl:h-[calc(100vh-65px)] w-64 bg-white dark:bg-[#2d1a1c] border-r border-[#e5dcdd] dark:border-[#3d2a2d] flex flex-col transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full xl:translate-x-0"}`}>
-                        {/* User Profile Summary */}
-                        <div className="p-6 border-b border-[#e5dcdd] dark:border-[#3d2a2d]">
-                            <div className="flex items-center gap-3">
-                                <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-black text-xl flex-shrink-0">
-                                    {(user.name || user.username || "U")[0].toUpperCase()}
-                                </div>
-                                <div className="overflow-hidden">
-                                    <p className="font-black text-[#181112] dark:text-white truncate">{user.name || user.username}</p>
-                                    <p className="text-xs text-[#886369] truncate">{user.email || "member@mprfoods.com"}</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Navigation Links */}
-                        <nav className="flex-1 overflow-y-auto p-4 space-y-1">
-                            <p className="text-xs font-bold uppercase tracking-widest text-[#886369] px-4 pb-2 pt-2">Main Menu</p>
-                            {sidebarLinks.map((link) => (
-                                <Link
-                                    key={link.href}
-                                    href={link.href}
-                                    onClick={() => setSidebarOpen(false)}
-                                    className={`flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all ${link.active ? "bg-primary text-white shadow-lg shadow-primary/20" : "text-[#886369] hover:bg-background-light dark:hover:bg-background-dark hover:text-primary"}`}
-                                >
-                                    <span className="material-symbols-outlined text-xl">{link.icon}</span>
-                                    {link.label}
-                                </Link>
-                            ))}
-                        </nav>
-
-                        {/* Logout */}
-                        <div className="p-4 border-t border-[#e5dcdd] dark:border-[#3d2a2d]">
-                            <button
-                                onClick={handleLogout}
-                                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl font-bold text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 transition-all"
-                            >
-                                <span className="material-symbols-outlined text-xl">logout</span>
-                                Sign Out
-                            </button>
-                        </div>
-                    </aside>
-                </>
-
-                {/* Main Content */}
+            <AppSidebar username={user.name || user.username} email={user.email}>
                 <main className="flex-1 overflow-y-auto">
-                    {/* Mobile sidebar toggle */}
-                    <div className="xl:hidden flex items-center gap-4 px-6 py-4 border-b border-[#e5dcdd] dark:border-[#3d2a2d]">
-                        <button
-                            onClick={() => setSidebarOpen(true)}
-                            className="w-10 h-10 rounded-xl bg-white dark:bg-[#2d1a1c] border border-[#e5dcdd] dark:border-[#3d2a2d] flex items-center justify-center hover:border-primary transition-colors"
-                        >
-                            <span className="material-symbols-outlined">menu</span>
-                        </button>
-                        <p className="font-bold text-[#886369]">Menu</p>
-                    </div>
-
                     <div className="max-w-5xl mx-auto px-6 md:px-10 py-10">
                         {/* Welcome Section */}
                         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
@@ -241,7 +158,7 @@ export default function Dashboard() {
                         )}
                     </div>
                 </main>
-            </div>
+            </AppSidebar>
         </div>
     );
 }

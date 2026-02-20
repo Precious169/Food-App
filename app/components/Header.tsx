@@ -80,7 +80,7 @@ export default function Header() {
                 </label>
 
                 {isLoggedIn ? (
-                    /* Logged in: show Cart, Settings, Logout */
+                    /* Logged in: show Cart and Settings only (Logout is in the sidebar) */
                     <div className="flex items-center gap-2 md:gap-3">
                         <Link href="/cart" className="flex items-center gap-1.5 h-9 px-3 md:px-4 bg-white dark:bg-[#2d1a1c] border border-[#e5dcdd] dark:border-[#3d2a2d] rounded-full text-sm font-bold hover:border-primary hover:text-primary transition-all">
                             <span className="material-symbols-outlined text-lg">shopping_cart</span>
@@ -90,12 +90,6 @@ export default function Header() {
                             <span className="material-symbols-outlined text-lg">settings</span>
                             <span className="hidden sm:block">Settings</span>
                         </Link>
-                        <button
-                            onClick={handleLogout}
-                            className="h-9 px-3 md:px-4 bg-primary text-white text-sm font-bold rounded-full hover:bg-primary/90 transition-all"
-                        >
-                            Log Out
-                        </button>
                     </div>
                 ) : (
                     /* Logged out: show Login / Sign Up */

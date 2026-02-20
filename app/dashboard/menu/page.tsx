@@ -2,43 +2,42 @@
 
 import { useState } from "react";
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import Link from "next/link";
+import AppSidebar from "../../components/AppSidebar";
 
-// Mock Data - In a real app, this would come from a database/API
+// Menu items with reliable, consistent image URLs
 const menuItems = [
     {
         id: 1,
         name: "Spicy Zinger Burger",
         description: "Crispy chicken breast with spicy coating, lettuce, and fiery mayo.",
-        price: "5.99",
+        price: 5.99,
         category: "Burgers",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBSrXROfr1hIh7bvLq2U6ZJb34KAJr6UsqoMYT2rxRv3SbWKkT0M2H7Smu9dW16Uqlrnq4jT7WBv4Oeu7e3Nd54gwqY6NKaSMuR3UMtHKMmv3EKBy6K3w-XAhLaAlwY-8LfsK_vYJqvK5DGzNe5442780DmHoy-ZzK4KkhBIxol3q3Dbxi68frG7weci4cdmTqah9rOcOeuorBuXWdE0uYBf6unoq-7ySqWWi_IWBHJ26h20--D4giYp19xifE7gFuoi4w4kAHFKtlo",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Cheeseburger.png/480px-Cheeseburger.png",
         spicy: true
     },
     {
         id: 2,
         name: "6pc Hot Wings",
         description: "Our signature spicy breaded wings, cooked to golden perfection.",
-        price: "4.49",
+        price: 4.49,
         category: "Chicken",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAvZg-UBT7f7uTJvPAI-yGgbS1c1jAA0Hh9ZIY7RucdDJvBn9RX0ma-UByEzJ66eahGYaTZYmw1Y1cc5O6s-F8k2OBcVJmaNRxUthDH_P5OxResg5louijRFOxtTHhHSyW0x8SYyHzBnld9ZwPF238ridLhQTKl8XlVL_0mqN6t6h5mF0fUbtnzTXIeg8063i_40Zc-nLnGL0aFaUMrYeiqsuhb6ELVG3XwB4DrOtv1TRfLrwZoSAITBqSSiZf9d7pRY9AiHc3RQ9un"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Chicken_Wings.jpg/640px-Chicken_Wings.jpg"
     },
     {
         id: 3,
         name: "Classic Fillet Burger",
         description: "Tender chicken fillet in original recipe breading with mayo.",
-        price: "5.49",
+        price: 5.49,
         category: "Burgers",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAnipkOnmEyAnyBZv7XLHfl49trJAT_oLq7Q29TwqEM8-z18RgMr-KobRcmAcr-GXzVZPaHS8T1pWJDr4LTGi_-MJluAMEXD06xbGP9Rg9K07zCmethdfLtLxBi1dgtABCMhDKLpLHK52i-CXTgmze9iKziJq3aznnlgeThNKpwjSSpNb0YXHK2Aa-PLbA0hJ_c6_uzHsMzAuVVfoouaGKl9LH2V47SpPGNpr1gJWF9460ES8PtHQIpTS8gOpyfjk3jyGrI7XW_SIe7"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/280px-PNG_transparency_demonstration_1.png"
     },
     {
         id: 4,
         name: "Large Popcorn Chicken",
         description: "Bite-sized pieces of real chicken breast in crunchy coating.",
-        price: "4.99",
+        price: 4.99,
         category: "Chicken",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/KFC_Original_Recipe_chicken_in_bucket.jpg/640px-KFC_Original_Recipe_chicken_in_bucket.jpg"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Popcorn_chicken.jpg/640px-Popcorn_chicken.jpg"
     },
     {
         id: 5,
@@ -46,7 +45,7 @@ const menuItems = [
         description: "Crispy veggie patty with fresh salad and classic sauce.",
         price: 5.29,
         category: "Burgers",
-        image: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Vegetarian_burger.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Veggie_burger.jpg/640px-Veggie_burger.jpg",
         veggie: true
     },
     {
@@ -111,99 +110,124 @@ const categories = ["All Items", "Deals", "Chicken", "Burgers", "Sides", "Drinks
 
 export default function PremiumMenuPage() {
     const [activeCategory, setActiveCategory] = useState("All Items");
+    const [tray, setTray] = useState<{ id: number; name: string; price: number; qty: number }[]>([]);
 
-    // Smooth scroll to category - simplified as filter for now to match request data availability
     const filteredItems = activeCategory === "All Items"
         ? menuItems
         : menuItems.filter(item => item.category === activeCategory);
 
+    const addToTray = (item: typeof menuItems[0]) => {
+        setTray(prev => {
+            const existing = prev.find(t => t.id === item.id);
+            if (existing) return prev.map(t => t.id === item.id ? { ...t, qty: t.qty + 1 } : t);
+            return [...prev, { id: item.id, name: item.name, price: item.price, qty: 1 }];
+        });
+    };
+
+    const trayTotal = tray.reduce((acc, t) => acc + t.price * t.qty, 0);
+
     return (
-        <div className="flex flex-col min-h-screen bg-[#FDFBF7] dark:bg-[#1a0d0f]">
+        <div className="flex flex-col min-h-screen bg-background-light dark:bg-background-dark">
             <Header />
-            <div className="flex flex-1 h-[calc(100vh-80px)] overflow-hidden">
-                {/* Sidebar Categories */}
-                <aside className="w-64 hidden xl:flex flex-col border-r border-[#e5dcdd] dark:border-[#3d2a2d] bg-white dark:bg-[#2d1a1c] p-6 overflow-y-auto">
-                    <h2 className="text-xl font-black mb-6 px-4">Categories</h2>
-                    <nav className="space-y-2">
-                        {categories.map(cat => (
-                            <button
-                                key={cat}
-                                onClick={() => setActiveCategory(cat)}
-                                className={`w-full text-left px-4 py-3 rounded-xl font-bold transition-all flex justify-between items-center ${activeCategory === cat ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'text-[#886369] hover:bg-[#f5f0f1] dark:hover:bg-[#3d2a2d] hover:text-primary'}`}
-                            >
-                                {cat}
-                                <span className="material-symbols-outlined text-sm">{activeCategory === cat ? 'chevron_right' : ''}</span>
-                            </button>
-                        ))}
-                    </nav>
-
-                    <div className="mt-auto pt-8">
-                        <div className="bg-background-light dark:bg-background-dark p-4 rounded-2xl">
-                            <h3 className="font-bold text-sm mb-2">Need Help?</h3>
-                            <p className="text-xs text-[#886369] mb-4">Contact our support team for allergen info.</p>
-                            <Link href="/support" className="flex items-center justify-center text-primary text-xs font-bold border border-primary px-3 py-2 rounded-lg w-full hover:bg-primary hover:text-white transition-all">
-                                Support
-                            </Link>
-                        </div>
+            <AppSidebar>
+                {/* Inner layout: category sidebar + menu items + cart tray */}
+                <div className="flex flex-1 overflow-hidden h-full">
+                    {/* Category Filter Sidebar */}
+                    <div className="w-44 hidden lg:flex flex-col border-r border-[#e5dcdd] dark:border-[#3d2a2d] bg-white dark:bg-[#2d1a1c] p-4 overflow-y-auto flex-shrink-0">
+                        <p className="text-xs font-bold uppercase tracking-widest text-[#886369] px-2 pb-3 pt-1">Categories</p>
+                        <nav className="space-y-1">
+                            {categories.map(cat => (
+                                <button
+                                    key={cat}
+                                    onClick={() => setActiveCategory(cat)}
+                                    className={`w-full text-left px-3 py-2.5 rounded-xl font-bold text-sm transition-all ${activeCategory === cat
+                                        ? 'bg-primary text-white shadow-md shadow-primary/20'
+                                        : 'text-[#886369] hover:bg-background-light dark:hover:bg-background-dark hover:text-primary'}`}
+                                >
+                                    {cat}
+                                </button>
+                            ))}
+                        </nav>
                     </div>
-                </aside>
 
-                {/* Main Content */}
-                <main className="flex-1 overflow-y-auto p-6 md:p-10 scroll-smooth">
-                    <div className="max-w-5xl mx-auto">
-                        <div className="flex items-center justify-between mb-8">
+                    {/* Menu Items */}
+                    <main className="flex-1 overflow-y-auto p-5 md:p-7">
+                        <div className="flex items-center justify-between mb-6">
                             <div>
-                                <h1 className="text-3xl font-black">{activeCategory}</h1>
-                                <p className="text-[#886369]">Choose from our delicious selection</p>
+                                <h1 className="text-2xl font-black">{activeCategory}</h1>
+                                <p className="text-sm text-[#886369]">{filteredItems.length} items available</p>
                             </div>
-                            {/* Mobile Category Dropdown could go here */}
+                            {/* Mobile category dropdown */}
+                            <select
+                                className="lg:hidden h-10 px-4 rounded-xl bg-white dark:bg-[#2d1a1c] border border-[#e5dcdd] dark:border-[#3d2a2d] font-bold text-sm focus:ring-2 focus:ring-primary focus:outline-none"
+                                value={activeCategory}
+                                onChange={(e) => setActiveCategory(e.target.value)}
+                            >
+                                {categories.map(c => <option key={c} value={c}>{c}</option>)}
+                            </select>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
                             {filteredItems.map(item => (
-                                <div key={item.id} className="bg-white dark:bg-[#2d1a1c] rounded-[2rem] p-4 border border-[#e5dcdd] dark:border-[#3d2a2d] shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all group cursor-pointer flex flex-col">
-                                    <div className="h-48 rounded-[1.5rem] bg-cover bg-center mb-4 relative overflow-hidden" style={{ backgroundImage: `url("${item.image}")` }}>
-                                        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all"></div>
-                                        {item.spicy && <div className="absolute top-3 right-3 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-md">SPICY</div>}
-                                        {item.veggie && <div className="absolute top-3 right-3 bg-green-600 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-md">VEGGIE</div>}
+                                <div key={item.id} className="bg-white dark:bg-[#2d1a1c] rounded-[1.5rem] border border-[#e5dcdd] dark:border-[#3d2a2d] shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all group cursor-pointer flex flex-col overflow-hidden">
+                                    <div className="h-44 bg-cover bg-center relative" style={{ backgroundImage: `url("${item.image}")` }}>
+                                        <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-all"></div>
+                                        {item.spicy && <div className="absolute top-2 right-2 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">SPICY 🌶️</div>}
+                                        {item.veggie && <div className="absolute top-2 right-2 bg-green-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">VEGGIE 🌱</div>}
                                     </div>
-                                    <div className="flex-1 flex flex-col">
-                                        <div className="flex justify-between items-start mb-2">
-                                            <h3 className="font-bold text-lg leading-tight">{item.name}</h3>
-                                            <span className="font-black text-primary">£{item.price}</span>
+                                    <div className="p-4 flex-1 flex flex-col">
+                                        <div className="flex justify-between items-start mb-1">
+                                            <h3 className="font-bold text-base leading-tight pr-2">{item.name}</h3>
+                                            <span className="font-black text-primary whitespace-nowrap">£{item.price.toFixed(2)}</span>
                                         </div>
-                                        <p className="text-sm text-[#886369] line-clamp-2 mb-4 flex-1">{item.description}</p>
-                                        <button className="w-full h-10 bg-background-light dark:bg-background-dark text-[#181112] dark:text-white font-bold rounded-xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2 group-hover:shadow-lg shadow-primary/10">
-                                            <span className="material-symbols-outlined text-lg">add</span> Add
+                                        <p className="text-xs text-[#886369] line-clamp-2 mb-4 flex-1">{item.description}</p>
+                                        <button
+                                            onClick={() => addToTray(item)}
+                                            className="w-full h-9 bg-background-light dark:bg-background-dark text-[#181112] dark:text-white font-bold rounded-xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-1.5 text-sm"
+                                        >
+                                            <span className="material-symbols-outlined text-base">add</span> Add to Tray
                                         </button>
                                     </div>
                                 </div>
                             ))}
                         </div>
-                    </div>
-                </main>
+                    </main>
 
-                {/* Right Sidebar - Tray/Cart Mini View */}
-                <aside className="w-80 hidden 2xl:flex flex-col border-l border-[#e5dcdd] dark:border-[#3d2a2d] bg-white dark:bg-[#2d1a1c] p-6">
-                    <h2 className="text-xl font-black mb-6">Your Tray</h2>
-
-                    <div className="flex-1 flex flex-col items-center justify-center text-center p-6 border-2 border-dashed border-[#e5dcdd] dark:border-[#3d2a2d] rounded-3xl">
-                        <div className="w-16 h-16 bg-background-light dark:bg-background-dark rounded-full flex items-center justify-center text-[#886369] mb-4">
-                            <span className="material-symbols-outlined text-3xl">shopping_basket</span>
+                    {/* Cart Tray - right panel */}
+                    <div className="w-60 hidden 2xl:flex flex-col border-l border-[#e5dcdd] dark:border-[#3d2a2d] bg-white dark:bg-[#2d1a1c] p-5 flex-shrink-0">
+                        <h2 className="text-lg font-black mb-4">Your Tray</h2>
+                        {tray.length === 0 ? (
+                            <div className="flex-1 flex flex-col items-center justify-center text-center p-4 border-2 border-dashed border-[#e5dcdd] dark:border-[#3d2a2d] rounded-2xl">
+                                <span className="material-symbols-outlined text-3xl text-[#886369] mb-2">shopping_basket</span>
+                                <p className="text-xs text-[#886369] font-bold">Tap 'Add' to start</p>
+                            </div>
+                        ) : (
+                            <div className="flex-1 overflow-y-auto space-y-2">
+                                {tray.map(t => (
+                                    <div key={t.id} className="flex justify-between items-center p-2 rounded-xl bg-background-light dark:bg-background-dark">
+                                        <div className="min-w-0 flex-1 mr-2">
+                                            <p className="font-bold text-xs truncate">{t.name}</p>
+                                            <p className="text-xs text-primary">x{t.qty} · £{(t.price * t.qty).toFixed(2)}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                        <div className="mt-4 space-y-3 flex-shrink-0">
+                            <div className="flex justify-between text-sm">
+                                <span className="text-[#886369]">Total</span>
+                                <span className="font-black text-lg">£{trayTotal.toFixed(2)}</span>
+                            </div>
+                            <button
+                                disabled={tray.length === 0}
+                                className="w-full h-12 bg-primary text-white font-black rounded-2xl disabled:opacity-40 disabled:cursor-not-allowed hover:bg-primary/90 transition-all"
+                            >
+                                Checkout
+                            </button>
                         </div>
-                        <p className="font-bold text-[#181112] dark:text-white">Your tray is empty</p>
-                        <p className="text-sm text-[#886369] mt-2">Tap 'Add' on items to start building your meal.</p>
                     </div>
-
-                    <div className="mt-6 space-y-4">
-                        <div className="flex justify-between text-sm">
-                            <span className="text-[#886369]">Total</span>
-                            <span className="font-black text-xl">£0.00</span>
-                        </div>
-                        <button disabled className="w-full h-14 bg-[#e5dcdd] dark:bg-[#3d2a2d] text-[#886369] font-black rounded-2xl cursor-not-allowed">Checkout</button>
-                    </div>
-                </aside>
-            </div>
+                </div>
+            </AppSidebar>
         </div>
     );
 }
