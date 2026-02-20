@@ -62,9 +62,9 @@ export default function Home() {
           {/* ImageGrid: Menu Items */}
           <section className="max-w-[1440px] mx-auto px-6 py-10">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-6">
-              {/* Item 1 - Signature Fried Chicken / Bucket */}
+              {/* Item 1 - Signature Fried Chicken */}
               <div className="flex flex-col bg-white dark:bg-[#2d1a1c] border border-[#e5dcdd] dark:border-[#3d2a2d] rounded-2xl overflow-hidden group cursor-pointer transition-all hover:scale-[1.05] hover:shadow-2xl hover:border-primary">
-                <div className="w-full bg-center bg-no-repeat aspect-square bg-cover" style={{ backgroundImage: `url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/KFC_Original_Recipe_chicken_in_bucket.jpg/640px-KFC_Original_Recipe_chicken_in_bucket.jpg")` }}></div>
+                <div className="w-full bg-center bg-no-repeat aspect-square bg-cover" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=400&q=80")` }}></div>
                 <div className="p-4">
                   <h3 className="text-[#181112] dark:text-white text-sm font-bold truncate">Signature Fried Chicken</h3>
                   <div className="flex justify-between items-center mt-2">
@@ -75,7 +75,7 @@ export default function Home() {
               </div>
               {/* Item 2 - Spicy Zinger Burger */}
               <div className="flex flex-col bg-white dark:bg-[#2d1a1c] border border-[#e5dcdd] dark:border-[#3d2a2d] rounded-2xl overflow-hidden group cursor-pointer transition-all hover:scale-[1.05] hover:shadow-2xl hover:border-primary">
-                <div className="w-full bg-center bg-no-repeat aspect-square bg-cover" style={{ backgroundImage: `url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Cheeseburger.png/480px-Cheeseburger.png")` }}></div>
+                <div className="w-full bg-center bg-no-repeat aspect-square bg-cover" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80")` }}></div>
                 <div className="p-4">
                   <h3 className="text-[#181112] dark:text-white text-sm font-bold truncate">Spicy Zinger Burger</h3>
                   <div className="flex justify-between items-center mt-2">
@@ -84,9 +84,9 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              {/* Item 3 - Crispy Wings */}
+              {/* Item 3 - Crispy Hot Wings */}
               <div className="flex flex-col bg-white dark:bg-[#2d1a1c] border border-[#e5dcdd] dark:border-[#3d2a2d] rounded-2xl overflow-hidden group cursor-pointer transition-all hover:scale-[1.05] hover:shadow-2xl hover:border-primary">
-                <div className="w-full bg-center bg-no-repeat aspect-square bg-cover" style={{ backgroundImage: `url("https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Chicken_Wings.jpg/640px-Chicken_Wings.jpg")` }}></div>
+                <div className="w-full bg-center bg-no-repeat aspect-square bg-cover" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=400&q=80")` }}></div>
                 <div className="p-4">
                   <h3 className="text-[#181112] dark:text-white text-sm font-bold truncate">Crispy Hot Wings</h3>
                   <div className="flex justify-between items-center mt-2">
@@ -95,9 +95,9 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              {/* Item 4 */}
+              {/* Item 4 - Family Feast */}
               <div className="flex flex-col bg-white dark:bg-[#2d1a1c] border border-[#e5dcdd] dark:border-[#3d2a2d] rounded-2xl overflow-hidden group cursor-pointer transition-all hover:scale-[1.05] hover:shadow-2xl hover:border-primary">
-                <div className="w-full bg-center bg-no-repeat aspect-square bg-cover" style={{ backgroundImage: `url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/KFC_Original_Recipe_chicken_in_bucket.jpg/640px-KFC_Original_Recipe_chicken_in_bucket.jpg")` }}></div>
+                <div className="w-full bg-center bg-no-repeat aspect-square bg-cover" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1610614819513-58e34989848b?w=400&q=80")` }}></div>
                 <div className="p-4">
                   <h3 className="text-[#181112] dark:text-white text-sm font-bold truncate">Family Feast</h3>
                   <div className="flex justify-between items-center mt-2">
@@ -108,7 +108,7 @@ export default function Home() {
               </div>
               {/* Item 5 - Large Fries */}
               <div className="flex flex-col bg-white dark:bg-[#2d1a1c] border border-[#e5dcdd] dark:border-[#3d2a2d] rounded-2xl overflow-hidden group cursor-pointer transition-all hover:scale-[1.05] hover:shadow-2xl hover:border-primary">
-                <div className="w-full bg-center bg-no-repeat aspect-square bg-cover" style={{ backgroundImage: `url("https://upload.wikimedia.org/wikipedia/commons/6/67/Fries_2.jpg")` }}></div>
+                <div className="w-full bg-center bg-no-repeat aspect-square bg-cover" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1576107232684-1279f390859f?w=400&q=80")` }}></div>
                 <div className="p-4">
                   <h3 className="text-[#181112] dark:text-white text-sm font-bold truncate">Large Fries</h3>
                   <div className="flex justify-between items-center mt-2">
@@ -119,7 +119,7 @@ export default function Home() {
               </div>
               {/* Item 6 - Mango Smoothie */}
               <div className="flex flex-col bg-white dark:bg-[#2d1a1c] border border-[#e5dcdd] dark:border-[#3d2a2d] rounded-2xl overflow-hidden group cursor-pointer transition-all hover:scale-[1.05] hover:shadow-2xl hover:border-primary">
-                <div className="w-full bg-center bg-no-repeat aspect-square bg-cover" style={{ backgroundImage: `url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Mango_Lassi.jpg/640px-Mango_Lassi.jpg")` }}></div>
+                <div className="w-full bg-center bg-no-repeat aspect-square bg-cover" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=400&q=80")` }}></div>
                 <div className="p-4">
                   <h3 className="text-[#181112] dark:text-white text-sm font-bold truncate">Mango Smoothie</h3>
                   <div className="flex justify-between items-center mt-2">

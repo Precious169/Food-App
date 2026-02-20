@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
+import AppSidebar from "../components/AppSidebar";
+import Link from "next/link";
 
 const menuItems = [
     {
@@ -11,7 +12,7 @@ const menuItems = [
         description: "Crispy chicken breast with spicy coating, lettuce, and fiery mayo.",
         price: "5.99",
         category: "Burgers",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBSrXROfr1hIh7bvLq2U6ZJb34KAJr6UsqoMYT2rxRv3SbWKkT0M2H7Smu9dW16Uqlrnq4jT7WBv4Oeu7e3Nd54gwqY6NKaSMuR3UMtHKMmv3EKBy6K3w-XAhLaAlwY-8LfsK_vYJqvK5DGzNe5442780DmHoy-ZzK4KkhBIxol3q3Dbxi68frG7weci4cdmTqah9rOcOeuorBuXWdE0uYBf6unoq-7ySqWWi_IWBHJ26h20--D4giYp19xifE7gFuoi4w4kAHFKtlo",
+        image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80",
         spicy: true
     },
     {
@@ -20,7 +21,7 @@ const menuItems = [
         description: "Our signature spicy breaded wings, cooked to golden perfection.",
         price: "4.49",
         category: "Chicken",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAvZg-UBT7f7uTJvPAI-yGgbS1c1jAA0Hh9ZIY7RucdDJvBn9RX0ma-UByEzJ66eahGYaTZYmw1Y1cc5O6s-F8k2OBcVJmaNRxUthDH_P5OxResg5louijRFOxtTHhHSyW0x8SYyHzBnld9ZwPF238ridLhQTKl8XlVL_0mqN6t6h5mF0fUbtnzTXIeg8063i_40Zc-nLnGL0aFaUMrYeiqsuhb6ELVG3XwB4DrOtv1TRfLrwZoSAITBqSSiZf9d7pRY9AiHc3RQ9un"
+        image: "https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=600&q=80"
     },
     {
         id: 3,
@@ -28,15 +29,15 @@ const menuItems = [
         description: "Tender chicken fillet in original recipe breading with mayo.",
         price: "5.49",
         category: "Burgers",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAnipkOnmEyAnyBZv7XLHfl49trJAT_oLq7Q29TwqEM8-z18RgMr-KobRcmAcr-GXzVZPaHS8T1pWJDr4LTGi_-MJluAMEXD06xbGP9Rg9K07zCmethdfLtLxBi1dgtABCMhDKLpLHK52i-CXTgmze9iKziJq3aznnlgeThNKpwjSSpNb0YXHK2Aa-PLbA0hJ_c6_uzHsMzAuVVfoouaGKl9LH2V47SpPGNpr1gJWF9460ES8PtHQIpTS8gOpyfjk3jyGrI7XW_SIe7"
+        image: "https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=600&q=80"
     },
     {
         id: 4,
-        name: "Large Popcorn Chicken",
+        name: "Fried Chicken Bucket",
         description: "Bite-sized pieces of real chicken breast in crunchy coating.",
         price: "4.99",
         category: "Chicken",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/KFC_Original_Recipe_chicken_in_bucket.jpg/640px-KFC_Original_Recipe_chicken_in_bucket.jpg"
+        image: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=600&q=80"
     },
     {
         id: 5,
@@ -44,7 +45,7 @@ const menuItems = [
         description: "Crispy veggie patty with fresh salad and classic sauce.",
         price: "5.29",
         category: "Burgers",
-        image: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Vegetarian_burger.jpg",
+        image: "https://images.unsplash.com/photo-1520072959219-c595dc870360?w=600&q=80",
         veggie: true
     },
     {
@@ -53,7 +54,7 @@ const menuItems = [
         description: "Golden, crispy potato fries lightly salted.",
         price: "2.49",
         category: "Sides",
-        image: "https://upload.wikimedia.org/wikipedia/commons/6/67/Fries_2.jpg"
+        image: "https://images.unsplash.com/photo-1576107232684-1279f390859f?w=600&q=80"
     },
     {
         id: 7,
@@ -61,7 +62,7 @@ const menuItems = [
         description: "Thick-cut onion rings in a beer batter coating.",
         price: "3.49",
         category: "Sides",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Onion_rings_mostly_eaten.jpg/640px-Onion_rings_mostly_eaten.jpg"
+        image: "https://images.unsplash.com/photo-1639024471283-03518883512d?w=600&q=80"
     },
     {
         id: 8,
@@ -69,7 +70,7 @@ const menuItems = [
         description: "Gooey mozzarella cheese in a herb-infused breadcrumb coating.",
         price: "3.99",
         category: "Sides",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Mozzarella_Sticks_%2816914569422%29.jpg/640px-Mozzarella_Sticks_%2816914569422%29.jpg"
+        image: "https://images.unsplash.com/photo-1548340748-6d2b7d7da280?w=600&q=80"
     },
     {
         id: 9,
@@ -77,7 +78,7 @@ const menuItems = [
         description: "Classic refreshing cola.",
         price: "1.99",
         category: "Drinks",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Glass_of_Cola.jpg/640px-Glass_of_Cola.jpg"
+        image: "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=600&q=80"
     },
     {
         id: 10,
@@ -85,7 +86,7 @@ const menuItems = [
         description: "Freshly blended mango with a splash of orange juice.",
         price: "3.99",
         category: "Drinks",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Mango_Lassi.jpg/640px-Mango_Lassi.jpg"
+        image: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=600&q=80"
     },
     {
         id: 11,
@@ -93,7 +94,7 @@ const menuItems = [
         description: "2pc chicken, 2pc wings, 1 small popcorn, regular fries & drink.",
         price: "8.99",
         category: "Deals",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/KFC_Original_Recipe_chicken_in_bucket.jpg/640px-KFC_Original_Recipe_chicken_in_bucket.jpg"
+        image: "https://images.unsplash.com/photo-1610614819513-58e34989848b?w=600&q=80"
     },
     {
         id: 12,
@@ -101,7 +102,7 @@ const menuItems = [
         description: "Tower burger, 1pc chicken, regular side, fries & drink.",
         price: "9.99",
         category: "Deals",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Chicken_burger_with_potato_wedges.jpg/640px-Chicken_burger_with_potato_wedges.jpg"
+        image: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=600&q=80"
     }
 ];
 
@@ -118,29 +119,26 @@ export default function MenuPage() {
     const displayedItems = showAll ? filteredItems : filteredItems.slice(0, 6);
 
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen bg-background-light dark:bg-background-dark">
             <Header />
-            <main className="flex-1 max-w-[1440px] mx-auto w-full px-6 md:px-10 py-12">
-                <div className="flex flex-col gap-12">
-                    {/* Menu Hero */}
-                    <div className="relative h-[250px] md:h-[300px] rounded-2xl overflow-hidden">
-                        <div
-                            className="absolute inset-0 bg-cover bg-center"
-                            style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAhcb-VCadDD3F8-AdXFWz6tG6g-kAJ3BXMKDWAs0Z5TV2BigOayLusIVGzUOLWD0KYPi-txuXtk5wxOrx1tjhjrOTuog1oinCln_NrKHmYuD_sCiUYIMrgaJuKecV8-1Pft3qptVcJXM4x7jaYih_JLgu1pt0RLK4CALg-e1Lv0VyIm7la1-SaYAJLWPKp0OzqgMyoqIl6YchOfA6IT6fpyha2VeC5mwUBEmpPqbivsstsF3Vlw_GmVZlUFTGHe-ONckrP-x_McrOB")` }}
-                        ></div>
-                        <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
-                            <h1 className="text-white text-4xl md:text-6xl font-black mb-4 tracking-tight">Our Full Menu</h1>
-                            <p className="text-white/80 text-lg md:text-xl max-w-2xl">Discover our legendary chicken, handcrafted burgers, and delicious sides.</p>
-                        </div>
+            <AppSidebar>
+                <main className="flex-1 p-6 md:p-10">
+                    {/* Page Header */}
+                    <div className="mb-8">
+                        <h1 className="text-3xl font-black mb-2 text-[#181112] dark:text-white">Full Menu</h1>
+                        <p className="text-[#886369]">Browse our full range of chicken, burgers, sides and drinks.</p>
                     </div>
 
                     {/* Category Tabs */}
-                    <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+                    <div className="flex gap-3 overflow-x-auto pb-3 mb-8 scrollbar-hide">
                         {categories.map((cat) => (
                             <button
                                 key={cat}
                                 onClick={() => { setActiveCategory(cat); setShowAll(false); }}
-                                className={`px-8 py-3 rounded-full font-bold transition-all whitespace-nowrap cursor-pointer ${activeCategory === cat ? "bg-primary text-white shadow-lg shadow-primary/20" : "bg-white dark:bg-[#2d1a1c] text-[#181112] dark:text-white border border-[#e5dcdd] dark:border-[#3d2a2d] hover:border-primary"}`}
+                                className={`px-6 py-2.5 rounded-full font-bold transition-all whitespace-nowrap text-sm cursor-pointer flex-shrink-0 ${activeCategory === cat
+                                    ? "bg-primary text-white shadow-lg shadow-primary/20"
+                                    : "bg-white dark:bg-[#2d1a1c] text-[#181112] dark:text-white border border-[#e5dcdd] dark:border-[#3d2a2d] hover:border-primary"
+                                    }`}
                             >
                                 {cat}
                             </button>
@@ -148,65 +146,75 @@ export default function MenuPage() {
                     </div>
 
                     {/* Menu Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-4 min-h-[400px]">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
                         {displayedItems.length > 0 ? (
                             displayedItems.map((item) => (
-                                <div key={item.id} className="bg-white dark:bg-[#2d1a1c] rounded-2xl overflow-hidden border border-[#e5dcdd] dark:border-[#3d2a2d] hover:shadow-2xl transition-all group flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                <div
+                                    key={item.id}
+                                    className="bg-white dark:bg-[#2d1a1c] rounded-2xl overflow-hidden border border-[#e5dcdd] dark:border-[#3d2a2d] hover:shadow-xl hover:border-primary transition-all group flex flex-col"
+                                >
                                     <div
-                                        className="h-64 bg-cover bg-center relative"
+                                        className="h-52 bg-cover bg-center relative flex-shrink-0"
                                         style={{ backgroundImage: `url("${item.image}")` }}
                                     >
                                         {item.spicy && (
-                                            <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
+                                            <div className="absolute top-3 right-3 bg-red-600 text-white px-2.5 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
                                                 <span className="material-symbols-outlined text-sm">local_fire_department</span> SPICY
                                             </div>
                                         )}
                                         {item.veggie && (
-                                            <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
+                                            <div className="absolute top-3 right-3 bg-green-600 text-white px-2.5 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
                                                 <span className="material-symbols-outlined text-sm">eco</span> VEGGIE
                                             </div>
                                         )}
-                                        {/* Glassmorphism Hover Overlay */}
+                                        {/* Hover overlay */}
                                         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 backdrop-blur-[2px] transition-all flex items-center justify-center">
-                                            <button className="bg-white/90 text-primary font-bold px-6 py-2 rounded-full transform scale-90 group-hover:scale-100 transition-all flex items-center gap-2">
-                                                <span className="material-symbols-outlined">zoom_in</span> Quick View
-                                            </button>
+                                            <Link
+                                                href="/dashboard/menu"
+                                                className="bg-white/90 text-primary font-bold px-5 py-2 rounded-full transform scale-90 group-hover:scale-100 transition-all flex items-center gap-2 text-sm"
+                                            >
+                                                <span className="material-symbols-outlined text-lg">add_shopping_cart</span>
+                                                Order Now
+                                            </Link>
                                         </div>
                                     </div>
-                                    <div className="p-8 flex-1 flex flex-col items-start gap-4">
-                                        <div className="flex justify-between items-start w-full gap-4">
-                                            <h3 className="text-xl md:text-2xl font-bold">{item.name}</h3>
-                                            <p className="text-primary text-xl md:text-2xl font-black">£{item.price}</p>
+                                    <div className="p-5 flex-1 flex flex-col gap-3">
+                                        <div className="flex justify-between items-start gap-2">
+                                            <h3 className="text-lg font-bold text-[#181112] dark:text-white">{item.name}</h3>
+                                            <p className="text-primary text-lg font-black flex-shrink-0">£{item.price}</p>
                                         </div>
-                                        <p className="text-[#886369] dark:text-[#a88d91] leading-relaxed line-clamp-2">{item.description}</p>
-                                        <button className="mt-auto w-full bg-background-light dark:bg-background-dark border border-primary text-primary font-bold py-3 rounded-xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
-                                            <span className="material-symbols-outlined">add_shopping_cart</span> Add to Cart
-                                        </button>
+                                        <p className="text-[#886369] dark:text-[#a88d91] text-sm leading-relaxed line-clamp-2">{item.description}</p>
+                                        <Link
+                                            href="/dashboard/menu"
+                                            className="mt-auto w-full bg-background-light dark:bg-background-dark border border-primary text-primary font-bold py-2.5 rounded-xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2 text-sm"
+                                        >
+                                            <span className="material-symbols-outlined text-lg">add_shopping_cart</span>
+                                            Add to Cart
+                                        </Link>
                                     </div>
                                 </div>
                             ))
                         ) : (
                             <div className="col-span-full flex flex-col items-center justify-center py-20 text-center">
                                 <span className="material-symbols-outlined text-6xl text-[#e5dcdd] mb-4">restaurant</span>
-                                <h3 className="text-2xl font-bold text-[#886369]">No items found in this category</h3>
-                                <p className="text-[#a88d91]">We're currently updating our selection for {activeCategory}.</p>
+                                <h3 className="text-2xl font-bold text-[#886369]">No items in this category</h3>
+                                <p className="text-[#a88d91]">We&apos;re updating this section soon!</p>
                             </div>
                         )}
                     </div>
 
                     {filteredItems.length > 6 && !showAll && (
-                        <div className="flex justify-center mt-8">
+                        <div className="flex justify-center mt-4 mb-8">
                             <button
                                 onClick={() => setShowAll(true)}
-                                className="px-10 py-4 bg-white dark:bg-[#2d1a1c] border-2 border-primary text-primary font-black text-lg rounded-full hover:bg-primary hover:text-white transition-all flex items-center gap-2 shadow-lg hover:shadow-primary/20"
+                                className="px-10 py-4 bg-white dark:bg-[#2d1a1c] border-2 border-primary text-primary font-black text-base rounded-full hover:bg-primary hover:text-white transition-all flex items-center gap-2 shadow-lg hover:shadow-primary/20"
                             >
                                 See More Options <span className="material-symbols-outlined">expand_more</span>
                             </button>
                         </div>
                     )}
-                </div>
-            </main>
-            <Footer />
+                </main>
+            </AppSidebar>
         </div>
     );
 }

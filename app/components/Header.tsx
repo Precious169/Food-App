@@ -86,7 +86,7 @@ export default function Header() {
                             <span className="material-symbols-outlined text-lg">shopping_cart</span>
                             <span className="hidden sm:block">Cart</span>
                         </Link>
-                        <Link href="/dashboard" className="flex items-center gap-1.5 h-9 px-3 md:px-4 bg-white dark:bg-[#2d1a1c] border border-[#e5dcdd] dark:border-[#3d2a2d] rounded-full text-sm font-bold hover:border-primary hover:text-primary transition-all">
+                        <Link href="/settings" className="flex items-center gap-1.5 h-9 px-3 md:px-4 bg-white dark:bg-[#2d1a1c] border border-[#e5dcdd] dark:border-[#3d2a2d] rounded-full text-sm font-bold hover:border-primary hover:text-primary transition-all">
                             <span className="material-symbols-outlined text-lg">settings</span>
                             <span className="hidden sm:block">Settings</span>
                         </Link>
