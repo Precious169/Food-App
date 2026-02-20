@@ -81,18 +81,17 @@ export default function AppSidebar({ children, username, email }: AppSidebarProp
                             </Link>
                         );
                     })}
-                </nav>
 
-                {/* Sign Out */}
-                <div className="p-3 border-t border-[#e5dcdd] dark:border-[#3d2a2d]">
+                    {/* Sign Out Option directly in nav to look like other links */}
                     <button
                         onClick={handleLogout}
-                        className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl font-bold text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 transition-all"
+                        className="w-full flex items-center justify-start gap-3 px-3 py-2.5 rounded-xl font-bold text-sm text-[#886369] hover:bg-background-light dark:hover:bg-background-dark hover:text-red-500 transition-all mt-1"
                     >
                         <span className="material-symbols-outlined text-xl">logout</span>
                         Sign Out
                     </button>
-                </div>
+                </nav>
+
             </aside>
 
             {/* Page Content */}
