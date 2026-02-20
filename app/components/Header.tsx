@@ -29,16 +29,10 @@ export default function Header() {
                         <input className="form-input flex w-full min-w-0 flex-1 border-none bg-white dark:bg-[#2d1a1c] focus:ring-0 rounded-r-full text-[#181112] dark:text-white placeholder:text-[#886369] px-4 pl-2 text-sm" placeholder="Find your flavor..." />
                     </div>
                 </label>
-                <div className="flex gap-4 items-center">
-                    <Link href="/cart" className="flex items-center justify-center w-10 h-10 rounded-full bg-[#f5f0f1] dark:bg-[#3d2a2d] text-primary hover:scale-110 transition-all relative">
-                        <span className="material-symbols-outlined">shopping_basket</span>
-                        <span className="absolute -top-1 -right-1 w-5 h-5 bg-primary text-white text-[10px] font-black rounded-full flex items-center justify-center border-2 border-white dark:border-[#211113]">2</span>
-                    </Link>
-                    <Link href="/auth/login" className="text-sm font-bold text-[#181112] dark:text-white hover:text-primary transition-colors">Log In</Link>
-                    <Link href="/auth/signup" className="flex items-center justify-center rounded-full h-10 px-6 bg-white dark:bg-[#2d1a1c] text-[#181112] dark:text-white border border-[#e5dcdd] dark:border-[#3d2a2d] text-sm font-bold hover:bg-background-light dark:hover:bg-background-dark transition-all">
-                        Sign Up
-                    </Link>
-                </div>
+                <Link href="/auth/login" className="text-sm font-bold text-[#181112] dark:text-white hover:text-primary transition-colors">Log In</Link>
+                <Link href="/auth/signup" className="flex items-center justify-center rounded-full h-10 px-6 bg-white dark:bg-[#2d1a1c] text-[#181112] dark:text-white border border-[#e5dcdd] dark:border-[#3d2a2d] text-sm font-bold hover:bg-background-light dark:hover:bg-background-dark transition-all">
+                    Sign Up
+                </Link>
             </div>
         </header>
     );

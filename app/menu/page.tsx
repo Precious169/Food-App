@@ -53,7 +53,7 @@ const menuItems = [
         description: "Golden, crispy potato fries lightly salted.",
         price: "2.49",
         category: "Sides",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAhcb-VCadDD3F8-AdXFWz6tG6g-kAJ3BXMKDWAs0Z5TV2BigOayLusIVGzUOLWD0KYPi-txuXtk5wxOrx1tjhjrOTuog1oinCln_NrKHmYuD_sCiUYIMrgaJuKecV8-1Pft3qptVcJXM4x7jaYih_JLgu1pt0RLK4CALg-e1Lv0VyIm7la1-SaYAJLWPKp0OzqgMyoqIl6YchOfA6IT6fpyha2VeC5mwUBEmpPqbivsstsF3Vlw_GmVZlUFTGHe-ONckrP-x_McrOB"
+        image: "https://upload.wikimedia.org/wikipedia/commons/6/67/Fries_2.jpg"
     },
     {
         id: 7,
@@ -61,7 +61,7 @@ const menuItems = [
         description: "Thick-cut onion rings in a beer batter coating.",
         price: "3.49",
         category: "Sides",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDbgM5H2WNKXtoHfTakwCsfG1Gkvfr8QJ48BOBewzrIUog2hTiovEUoDeo4EraMHYpqy_-MtZEBSPj8nv3SPtLdFq3IrujEVf9UzdnCEXBlN6-zKpTPBJfqDjpJY7S98DzbyeitgpFrqYr6DTkXzQ-ttEKph__RO5XinNCcuXLxZO3SFchyabiWgANedUKiWJv-4atnYKo0KElClxVfsTDkoQh_hNPwV41cqqwmTwOUIY_tJNBe0zH9IE9dTdyAczi2kPuIqNbAS7e1"
+        image: "https://upload.wikimedia.org/wikipedia/commons/4/42/OnionRings.JPG"
     },
     {
         id: 8,
@@ -69,7 +69,7 @@ const menuItems = [
         description: "Gooey mozzarella cheese in a herb-infused breadcrumb coating.",
         price: "3.99",
         category: "Sides",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCexeg8OsIis9IS3rGLefL-uLkANH3FctU8RyuhGZyl8Y5wr4qw-hb4nzOJL0cUetZEDbX6VtpWSL86d7_0QxVHRg8fF0By6FJfVCrZ8T1fwKqQ4cGmiYfMSNiF4UShaWE0PruO4CDkFL3G0RGxSOX-52endRHgJrEdoR8pVrsRcuMFJ1bcrZFOcgmIEt8BtMoYabm7S3YltsmyG0QgSErLn8ks9i1wypN_-X6j6LiHY_AbaVviVZwQlakOjvPuk6Ba7dJ8FXLu0Owk"
+        image: "https://upload.wikimedia.org/wikipedia/commons/b/b2/Mozzarella_sticks.jpg"
     },
     {
         id: 9,
@@ -77,7 +77,7 @@ const menuItems = [
         description: "Classic refreshing cola.",
         price: "1.99",
         category: "Drinks",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAfXsYXYNSLJHH3R-0wkhh8iNLG1vcZsOtv94U8IZSxjOoOcWdfkt42ySHPuqWHukLFDxhgAyxH4RVR79piIR2icFbxA4-gHLBXbBv0XsQmhrm3DJFGIJecJ8dBvZgarnCMV4-qr9fvz3D8vDNlCAAe9BQN8MOetAfAKhwuOcQW38CoGK3xgCl_Fz1iiBMre5jO0MBDbwvlyNRlIxBJLEPYvRAdrTuH5Hxm1hpQls65pbxJuscJWll2U5TXaUJH-b9Ia2TXwjt4Hehs"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/2021-09-28_20_24_19_Tortilla_chips%2C_salsa_and_a_Coca-Cola_bottle_at_the_Asadero_Mexican_Grill_in_Rochelle_Park_Township%2C_Bergen_County%2C_New_Jersey.jpg/320px-2021-09-28_20_24_19_Tortilla_chips%2C_salsa_and_a_Coca-Cola_bottle_at_the_Asadero_Mexican_Grill_in_Rochelle_Park_Township%2C_Bergen_County%2C_New_Jersey.jpg"
     },
     {
         id: 10,
@@ -85,7 +85,7 @@ const menuItems = [
         description: "Freshly blended mango with a splash of orange juice.",
         price: "3.99",
         category: "Drinks",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDuRlZa6V483HwuSA-VqRQOMeAKwAYGW6h8o9HQXoUwxDmvqfTvlPrO3TCA9rHLkVOMh1X-vQTqrGDUW1CAzmqTINi-MeFsvZb8fMG5Ui4W7dQE0RVM-tuSGq7wDwdqvjVtpdjB-Hk4nBxSclgh-jB3HeHUhNE7lrZH87MOb4qXntb3ZBdNbV6tbdEeg0fMqflLxejqCr1kpptF9wec0XMh-mn4F1BmoPrQJ5bwwlCR9rQyOzj67zJBFzOqc8Zgt9Q4JSQdKYrM5cgx"
+        image: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Mango_Thick_Shake.JPG"
     },
     {
         id: 11,
@@ -93,7 +93,7 @@ const menuItems = [
         description: "2pc chicken, 2pc wings, 1 small popcorn, regular fries & drink.",
         price: "8.99",
         category: "Deals",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAVbUJuZ2WdBjVHFD3wytlwFCBwNhwLj2itqVitucZ30zdrMwRpexhdx8nvTs7BE9iemM04kMR0WfXvjS6xOv4DFVy_OC0Fnw3kxkEOlV2rQKRCtwDZ6GaCvVgBQgMSLZwoPxrJ6dK64tyhZwPk8JMPmFeBUDwL5wKxWjA-vEj0-ngdpnD4QW1l2LZiZOYEjuQS-q7A3tTtMsXBlMIdr43WFKTU-CclclbVr3JumOAk1w0hx5LSqehZqhtOnGdbsjN_mUqaCae4bA4t"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fried_Chicken_Bucket.jpg/640px-Fried_Chicken_Bucket.jpg"
     },
     {
         id: 12,
@@ -101,7 +101,7 @@ const menuItems = [
         description: "Tower burger, 1pc chicken, regular side, fries & drink.",
         price: "9.99",
         category: "Deals",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAnipkOnmEyAnyBZv7XLHfl49trJAT_oLq7Q29TwqEM8-z18RgMr-KobRcmAcr-GXzVZPaHS8T1pWJDr4LTGi_-MJluAMEXD06xbGP9Rg9K07zCmethdfLtLxBi1dgtABCMhDKLpLHK52i-CXTgmze9iKziJq3aznnlgeThNKpwjSSpNb0YXHK2Aa-PLbA0hJ_c6_uzHsMzAuVVfoouaGKl9LH2V47SpPGNpr1gJWF9460ES8PtHQIpTS8gOpyfjk3jyGrI7XW_SIe7"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Chicken_burger_with_potato_wedges.jpg/640px-Chicken_burger_with_potato_wedges.jpg"
     }
 ];
 
