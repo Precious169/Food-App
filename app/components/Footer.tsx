@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import SubscribeOverlay from "./SubscribeOverlay";
 
 export default function Footer() {
     return (
@@ -60,10 +63,7 @@ export default function Footer() {
                     <div className="flex flex-col gap-6">
                         <h4 className="text-lg font-bold">Newsletter</h4>
                         <p className="text-white/60">Get exclusive deals and the latest menu updates.</p>
-                        <div className="flex flex-col gap-3">
-                            <input className="bg-white/5 border-none rounded-full px-6 py-3 focus:ring-2 focus:ring-primary text-sm" placeholder="Your email address" type="email" />
-                            <button className="bg-primary text-white font-bold py-3 rounded-full hover:bg-primary/90 transition-colors">Subscribe</button>
-                        </div>
+                        <SubscribeOverlay />
                     </div>
                 </div>
                 <div className="flex flex-col md:flex-row justify-between items-center py-8 text-white/40 text-sm gap-4">
