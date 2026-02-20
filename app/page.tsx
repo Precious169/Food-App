@@ -33,7 +33,7 @@ export default function Home() {
                       Experience the best fried chicken in the UK, prepared fresh with our secret 11-spice blend and delivered piping hot.
                     </p>
                     <div className="flex flex-wrap gap-4 mt-4">
-                      <Link href="/menu" className="flex min-w-[180px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-8 bg-primary text-white text-lg font-black leading-normal tracking-[0.015em] hover:scale-105 transition-all shadow-xl shadow-primary/30">
+                      <Link href="/our-menu" className="flex min-h-[56px] min-w-[180px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-8 bg-primary text-white text-lg font-black leading-normal tracking-[0.015em] hover:scale-105 transition-all shadow-xl shadow-primary/30">
                         <span className="truncate">Order Now</span>
                       </Link>
                       <Link href="/auth/signup" className="flex min-w-[180px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-8 bg-white/10 backdrop-blur-md border-2 border-white/30 text-white text-lg font-black leading-normal tracking-[0.015em] hover:bg-white/20 transition-all">
@@ -53,7 +53,7 @@ export default function Home() {
                 <p className="text-secondary font-bold uppercase tracking-widest text-sm mb-2">Popular Choices</p>
                 <h2 className="text-[#181112] dark:text-white text-4xl font-black leading-tight">Our Featured Menu</h2>
               </div>
-              <Link className="text-primary font-bold flex items-center gap-2 hover:underline" href="/menu">
+              <Link className="text-primary font-bold flex items-center gap-2 hover:underline" href="/our-menu">
                 View Full Menu <span className="material-symbols-outlined">arrow_forward</span>
               </Link>
             </div>

@@ -1,16 +1,15 @@
 "use client";
 
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import AppSidebar from "../components/AppSidebar";
 
 export default function ContactPage() {
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col h-[100dvh] overflow-hidden">
             <Header />
             <AppSidebar>
-                <main className="flex-1">
-                    <section className="bg-white dark:bg-[#1a0d0f] py-16 px-6 md:px-10">
+                <main className="flex-1 overflow-y-auto">
+                    <section className="bg-white dark:bg-[#1a0d0f] py-16 px-6 md:px-10 min-h-full">
                         <div className="max-w-5xl mx-auto">
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                                 <div className="flex flex-col gap-8">
@@ -94,7 +93,6 @@ export default function ContactPage() {
                         </div>
                     </section>
                 </main>
-                <Footer />
             </AppSidebar>
         </div>
     );
