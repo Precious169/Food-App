@@ -15,7 +15,7 @@ export default function SignupPage() {
     const handleSignup = (e: React.FormEvent) => {
         e.preventDefault();
         // Mock signup logic
-        sessionStorage.setItem("user", JSON.stringify({ ...formData, isAuthenticated: true }));
+        sessionStorage.setItem("user", JSON.stringify({ ...formData, isAuthenticated: true, isNewUser: true }));
         router.push("/auth/onboarding");
     };
 

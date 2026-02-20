@@ -46,6 +46,62 @@ const menuItems = [
         category: "Burgers",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAW9U16Dhj3jkOVnpBAEphe67INuDh9jPPQkG3lHZasYpri2odT40awbdseck8tsJ-fhF1KTxaidm2ia3txbYyBjPwZojN1XTdwInTieBaqEOPfgmIbalohE90mSlhTC1fotKuAbmoMYjcl7b5Ww31G59NF_N4-MmefoayeZJiMwYzUxXpHiYBgsAjiIWDlIZa67mqxcGI5j2b9KeksLUyGLcHNGljydjVnr6eQIxW-btJlOOdFEtgwx78aX9OgfRafL-EMHDnIGNTH",
         veggie: true
+    },
+    {
+        id: 6,
+        name: "Large Fries",
+        description: "Golden, crispy potato fries lightly salted.",
+        price: "2.49",
+        category: "Sides",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAhcb-VCadDD3F8-AdXFWz6tG6g-kAJ3BXMKDWAs0Z5TV2BigOayLusIVGzUOLWD0KYPi-txuXtk5wxOrx1tjhjrOTuog1oinCln_NrKHmYuD_sCiUYIMrgaJuKecV8-1Pft3qptVcJXM4x7jaYih_JLgu1pt0RLK4CALg-e1Lv0VyIm7la1-SaYAJLWPKp0OzqgMyoqIl6YchOfA6IT6fpyha2VeC5mwUBEmpPqbivsstsF3Vlw_GmVZlUFTGHe-ONckrP-x_McrOB"
+    },
+    {
+        id: 7,
+        name: "Onion Rings (8pc)",
+        description: "Thick-cut onion rings in a beer batter coating.",
+        price: "3.49",
+        category: "Sides",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDbgM5H2WNKXtoHfTakwCsfG1Gkvfr8QJ48BOBewzrIUog2hTiovEUoDeo4EraMHYpqy_-MtZEBSPj8nv3SPtLdFq3IrujEVf9UzdnCEXBlN6-zKpTPBJfqDjpJY7S98DzbyeitgpFrqYr6DTkXzQ-ttEKph__RO5XinNCcuXLxZO3SFchyabiWgANedUKiWJv-4atnYKo0KElClxVfsTDkoQh_hNPwV41cqqwmTwOUIY_tJNBe0zH9IE9dTdyAczi2kPuIqNbAS7e1"
+    },
+    {
+        id: 8,
+        name: "Mozzarella Sticks",
+        description: "Gooey mozzarella cheese in a herb-infused breadcrumb coating.",
+        price: "3.99",
+        category: "Sides",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCexeg8OsIis9IS3rGLefL-uLkANH3FctU8RyuhGZyl8Y5wr4qw-hb4nzOJL0cUetZEDbX6VtpWSL86d7_0QxVHRg8fF0By6FJfVCrZ8T1fwKqQ4cGmiYfMSNiF4UShaWE0PruO4CDkFL3G0RGxSOX-52endRHgJrEdoR8pVrsRcuMFJ1bcrZFOcgmIEt8BtMoYabm7S3YltsmyG0QgSErLn8ks9i1wypN_-X6j6LiHY_AbaVviVZwQlakOjvPuk6Ba7dJ8FXLu0Owk"
+    },
+    {
+        id: 9,
+        name: "Coca-Cola (500ml)",
+        description: "Classic refreshing cola.",
+        price: "1.99",
+        category: "Drinks",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAfXsYXYNSLJHH3R-0wkhh8iNLG1vcZsOtv94U8IZSxjOoOcWdfkt42ySHPuqWHukLFDxhgAyxH4RVR79piIR2icFbxA4-gHLBXbBv0XsQmhrm3DJFGIJecJ8dBvZgarnCMV4-qr9fvz3D8vDNlCAAe9BQN8MOetAfAKhwuOcQW38CoGK3xgCl_Fz1iiBMre5jO0MBDbwvlyNRlIxBJLEPYvRAdrTuH5Hxm1hpQls65pbxJuscJWll2U5TXaUJH-b9Ia2TXwjt4Hehs"
+    },
+    {
+        id: 10,
+        name: "Mango Smoothie",
+        description: "Freshly blended mango with a splash of orange juice.",
+        price: "3.99",
+        category: "Drinks",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDuRlZa6V483HwuSA-VqRQOMeAKwAYGW6h8o9HQXoUwxDmvqfTvlPrO3TCA9rHLkVOMh1X-vQTqrGDUW1CAzmqTINi-MeFsvZb8fMG5Ui4W7dQE0RVM-tuSGq7wDwdqvjVtpdjB-Hk4nBxSclgh-jB3HeHUhNE7lrZH87MOb4qXntb3ZBdNbV6tbdEeg0fMqflLxejqCr1kpptF9wec0XMh-mn4F1BmoPrQJ5bwwlCR9rQyOzj67zJBFzOqc8Zgt9Q4JSQdKYrM5cgx"
+    },
+    {
+        id: 11,
+        name: "Mighty Bucket for One",
+        description: "2pc chicken, 2pc wings, 1 small popcorn, regular fries & drink.",
+        price: "8.99",
+        category: "Deals",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAVbUJuZ2WdBjVHFD3wytlwFCBwNhwLj2itqVitucZ30zdrMwRpexhdx8nvTs7BE9iemM04kMR0WfXvjS6xOv4DFVy_OC0Fnw3kxkEOlV2rQKRCtwDZ6GaCvVgBQgMSLZwoPxrJ6dK64tyhZwPk8JMPmFeBUDwL5wKxWjA-vEj0-ngdpnD4QW1l2LZiZOYEjuQS-q7A3tTtMsXBlMIdr43WFKTU-CclclbVr3JumOAk1w0hx5LSqehZqhtOnGdbsjN_mUqaCae4bA4t"
+    },
+    {
+        id: 12,
+        name: "Tower Burger Box Meal",
+        description: "Tower burger, 1pc chicken, regular side, fries & drink.",
+        price: "9.99",
+        category: "Deals",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAnipkOnmEyAnyBZv7XLHfl49trJAT_oLq7Q29TwqEM8-z18RgMr-KobRcmAcr-GXzVZPaHS8T1pWJDr4LTGi_-MJluAMEXD06xbGP9Rg9K07zCmethdfLtLxBi1dgtABCMhDKLpLHK52i-CXTgmze9iKziJq3aznnlgeThNKpwjSSpNb0YXHK2Aa-PLbA0hJ_c6_uzHsMzAuVVfoouaGKl9LH2V47SpPGNpr1gJWF9460ES8PtHQIpTS8gOpyfjk3jyGrI7XW_SIe7"
     }
 ];
 
@@ -53,10 +109,13 @@ const categories = ["All Items", "Chicken", "Burgers", "Sides", "Drinks", "Deals
 
 export default function MenuPage() {
     const [activeCategory, setActiveCategory] = useState("All Items");
+    const [showAll, setShowAll] = useState(false);
 
     const filteredItems = activeCategory === "All Items"
         ? menuItems
         : menuItems.filter(item => item.category === activeCategory);
+
+    const displayedItems = showAll ? filteredItems : filteredItems.slice(0, 6);
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -80,7 +139,7 @@ export default function MenuPage() {
                         {categories.map((cat) => (
                             <button
                                 key={cat}
-                                onClick={() => setActiveCategory(cat)}
+                                onClick={() => { setActiveCategory(cat); setShowAll(false); }}
                                 className={`px-8 py-3 rounded-full font-bold transition-all whitespace-nowrap cursor-pointer ${activeCategory === cat ? "bg-primary text-white shadow-lg shadow-primary/20" : "bg-white dark:bg-[#2d1a1c] text-[#181112] dark:text-white border border-[#e5dcdd] dark:border-[#3d2a2d] hover:border-primary"}`}
                             >
                                 {cat}
@@ -89,9 +148,9 @@ export default function MenuPage() {
                     </div>
 
                     {/* Menu Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 min-h-[400px]">
-                        {filteredItems.length > 0 ? (
-                            filteredItems.map((item) => (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-4 min-h-[400px]">
+                        {displayedItems.length > 0 ? (
+                            displayedItems.map((item) => (
                                 <div key={item.id} className="bg-white dark:bg-[#2d1a1c] rounded-2xl overflow-hidden border border-[#e5dcdd] dark:border-[#3d2a2d] hover:shadow-2xl transition-all group flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-500">
                                     <div
                                         className="h-64 bg-cover bg-center relative"
@@ -134,6 +193,17 @@ export default function MenuPage() {
                             </div>
                         )}
                     </div>
+
+                    {filteredItems.length > 6 && !showAll && (
+                        <div className="flex justify-center mt-8">
+                            <button
+                                onClick={() => setShowAll(true)}
+                                className="px-10 py-4 bg-white dark:bg-[#2d1a1c] border-2 border-primary text-primary font-black text-lg rounded-full hover:bg-primary hover:text-white transition-all flex items-center gap-2 shadow-lg hover:shadow-primary/20"
+                            >
+                                See More Options <span className="material-symbols-outlined">expand_more</span>
+                            </button>
+                        </div>
+                    )}
                 </div>
             </main>
             <Footer />

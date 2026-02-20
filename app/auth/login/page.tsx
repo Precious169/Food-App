@@ -14,7 +14,7 @@ export default function LoginPage() {
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
         // Mock login logic
-        sessionStorage.setItem("user", JSON.stringify({ ...formData, name: "Returning Member", isAuthenticated: true }));
+        sessionStorage.setItem("user", JSON.stringify({ ...formData, name: "Alexander Grant", isAuthenticated: true, isNewUser: false }));
         router.push("/dashboard");
     };
 
