@@ -36,7 +36,7 @@ const menuItems = [
         description: "Bite-sized pieces of real chicken breast in crunchy coating.",
         price: "4.99",
         category: "Chicken",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fried_Chicken_Bucket.jpg/640px-Fried_Chicken_Bucket.jpg"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/KFC_Original_Recipe_chicken_in_bucket.jpg/640px-KFC_Original_Recipe_chicken_in_bucket.jpg"
     },
     {
         id: 5,
@@ -61,7 +61,7 @@ const menuItems = [
         description: "Thick-cut onion rings in a beer batter coating.",
         price: "3.49",
         category: "Sides",
-        image: "https://upload.wikimedia.org/wikipedia/commons/4/42/OnionRings.JPG"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Onion_rings_mostly_eaten.jpg/640px-Onion_rings_mostly_eaten.jpg"
     },
     {
         id: 8,
@@ -69,7 +69,7 @@ const menuItems = [
         description: "Gooey mozzarella cheese in a herb-infused breadcrumb coating.",
         price: "3.99",
         category: "Sides",
-        image: "https://upload.wikimedia.org/wikipedia/commons/b/b2/Mozzarella_sticks.jpg"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Mozzarella_Sticks_%2816914569422%29.jpg/640px-Mozzarella_Sticks_%2816914569422%29.jpg"
     },
     {
         id: 9,
@@ -77,7 +77,7 @@ const menuItems = [
         description: "Classic refreshing cola.",
         price: "1.99",
         category: "Drinks",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/2021-09-28_20_24_19_Tortilla_chips%2C_salsa_and_a_Coca-Cola_bottle_at_the_Asadero_Mexican_Grill_in_Rochelle_Park_Township%2C_Bergen_County%2C_New_Jersey.jpg/320px-2021-09-28_20_24_19_Tortilla_chips%2C_salsa_and_a_Coca-Cola_bottle_at_the_Asadero_Mexican_Grill_in_Rochelle_Park_Township%2C_Bergen_County%2C_New_Jersey.jpg"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Glass_of_Cola.jpg/640px-Glass_of_Cola.jpg"
     },
     {
         id: 10,
@@ -85,7 +85,7 @@ const menuItems = [
         description: "Freshly blended mango with a splash of orange juice.",
         price: "3.99",
         category: "Drinks",
-        image: "https://upload.wikimedia.org/wikipedia/commons/7/77/Glass_of_Mango_Juice.jpg"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Mango_Lassi.jpg/640px-Mango_Lassi.jpg"
     },
     {
         id: 11,

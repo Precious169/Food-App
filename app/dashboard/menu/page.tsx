@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import Link from "next/link";
 
 // Mock Data - In a real app, this would come from a database/API
 const menuItems = [
@@ -10,7 +11,7 @@ const menuItems = [
         id: 1,
         name: "Spicy Zinger Burger",
         description: "Crispy chicken breast with spicy coating, lettuce, and fiery mayo.",
-        price: 5.99,
+        price: "5.99",
         category: "Burgers",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBSrXROfr1hIh7bvLq2U6ZJb34KAJr6UsqoMYT2rxRv3SbWKkT0M2H7Smu9dW16Uqlrnq4jT7WBv4Oeu7e3Nd54gwqY6NKaSMuR3UMtHKMmv3EKBy6K3w-XAhLaAlwY-8LfsK_vYJqvK5DGzNe5442780DmHoy-ZzK4KkhBIxol3q3Dbxi68frG7weci4cdmTqah9rOcOeuorBuXWdE0uYBf6unoq-7ySqWWi_IWBHJ26h20--D4giYp19xifE7gFuoi4w4kAHFKtlo",
         spicy: true
@@ -19,7 +20,7 @@ const menuItems = [
         id: 2,
         name: "6pc Hot Wings",
         description: "Our signature spicy breaded wings, cooked to golden perfection.",
-        price: 4.49,
+        price: "4.49",
         category: "Chicken",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAvZg-UBT7f7uTJvPAI-yGgbS1c1jAA0Hh9ZIY7RucdDJvBn9RX0ma-UByEzJ66eahGYaTZYmw1Y1cc5O6s-F8k2OBcVJmaNRxUthDH_P5OxResg5louijRFOxtTHhHSyW0x8SYyHzBnld9ZwPF238ridLhQTKl8XlVL_0mqN6t6h5mF0fUbtnzTXIeg8063i_40Zc-nLnGL0aFaUMrYeiqsuhb6ELVG3XwB4DrOtv1TRfLrwZoSAITBqSSiZf9d7pRY9AiHc3RQ9un"
     },
@@ -27,7 +28,7 @@ const menuItems = [
         id: 3,
         name: "Classic Fillet Burger",
         description: "Tender chicken fillet in original recipe breading with mayo.",
-        price: 5.49,
+        price: "5.49",
         category: "Burgers",
         image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAnipkOnmEyAnyBZv7XLHfl49trJAT_oLq7Q29TwqEM8-z18RgMr-KobRcmAcr-GXzVZPaHS8T1pWJDr4LTGi_-MJluAMEXD06xbGP9Rg9K07zCmethdfLtLxBi1dgtABCMhDKLpLHK52i-CXTgmze9iKziJq3aznnlgeThNKpwjSSpNb0YXHK2Aa-PLbA0hJ_c6_uzHsMzAuVVfoouaGKl9LH2V47SpPGNpr1gJWF9460ES8PtHQIpTS8gOpyfjk3jyGrI7XW_SIe7"
     },
@@ -35,9 +36,9 @@ const menuItems = [
         id: 4,
         name: "Large Popcorn Chicken",
         description: "Bite-sized pieces of real chicken breast in crunchy coating.",
-        price: 4.99,
+        price: "4.99",
         category: "Chicken",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fried_Chicken_Bucket.jpg/640px-Fried_Chicken_Bucket.jpg"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/KFC_Original_Recipe_chicken_in_bucket.jpg/640px-KFC_Original_Recipe_chicken_in_bucket.jpg"
     },
     {
         id: 5,
@@ -62,7 +63,7 @@ const menuItems = [
         description: "Thick-cut onion rings in a beer batter coating.",
         price: 3.49,
         category: "Sides",
-        image: "https://upload.wikimedia.org/wikipedia/commons/4/42/OnionRings.JPG"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Onion_rings_mostly_eaten.jpg/640px-Onion_rings_mostly_eaten.jpg"
     },
     {
         id: 8,
@@ -70,7 +71,7 @@ const menuItems = [
         description: "Gooey mozzarella cheese in a herb-infused breadcrumb coating.",
         price: 3.99,
         category: "Sides",
-        image: "https://upload.wikimedia.org/wikipedia/commons/b/b2/Mozzarella_sticks.jpg"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Mozzarella_Sticks_%2816914569422%29.jpg/640px-Mozzarella_Sticks_%2816914569422%29.jpg"
     },
     {
         id: 9,
@@ -78,7 +79,7 @@ const menuItems = [
         description: "Classic refreshing cola.",
         price: 1.99,
         category: "Drinks",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/2021-09-28_20_24_19_Tortilla_chips%2C_salsa_and_a_Coca-Cola_bottle_at_the_Asadero_Mexican_Grill_in_Rochelle_Park_Township%2C_Bergen_County%2C_New_Jersey.jpg/320px-2021-09-28_20_24_19_Tortilla_chips%2C_salsa_and_a_Coca-Cola_bottle_at_the_Asadero_Mexican_Grill_in_Rochelle_Park_Township%2C_Bergen_County%2C_New_Jersey.jpg"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Glass_of_Cola.jpg/640px-Glass_of_Cola.jpg"
     },
     {
         id: 10,
@@ -86,7 +87,7 @@ const menuItems = [
         description: "Freshly blended mango with a splash of orange juice.",
         price: 3.99,
         category: "Drinks",
-        image: "https://upload.wikimedia.org/wikipedia/commons/7/77/Glass_of_Mango_Juice.jpg"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Mango_Lassi.jpg/640px-Mango_Lassi.jpg"
     },
     {
         id: 11,
@@ -140,7 +141,9 @@ export default function PremiumMenuPage() {
                         <div className="bg-background-light dark:bg-background-dark p-4 rounded-2xl">
                             <h3 className="font-bold text-sm mb-2">Need Help?</h3>
                             <p className="text-xs text-[#886369] mb-4">Contact our support team for allergen info.</p>
-                            <button className="text-primary text-xs font-bold border border-primary px-3 py-2 rounded-lg w-full hover:bg-primary hover:text-white transition-all">Support</button>
+                            <Link href="/support" className="flex items-center justify-center text-primary text-xs font-bold border border-primary px-3 py-2 rounded-lg w-full hover:bg-primary hover:text-white transition-all">
+                                Support
+                            </Link>
                         </div>
                     </div>
                 </aside>
