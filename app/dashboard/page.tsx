@@ -22,7 +22,7 @@ export default function Dashboard() {
     if (!user) return null;
 
     return (
-        <div className="flex flex-col min-h-screen bg-background-light dark:bg-background-dark">
+        <div className="flex flex-col h-[100dvh] overflow-hidden bg-background-light dark:bg-background-dark">
             <Header />
             <AppSidebar username={user.name || user.username} email={user.email}>
                 <main className="flex-1 overflow-y-auto">

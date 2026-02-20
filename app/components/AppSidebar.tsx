@@ -14,6 +14,7 @@ const sidebarLinks = [
     { href: "/support", icon: "support_agent", label: "Customer Support" },
     { href: "/contact", icon: "contact_mail", label: "Contact Us" },
     { href: "/location", icon: "location_on", label: "Locations" },
+    { href: "/settings", icon: "settings", label: "Settings" },
 ];
 
 interface AppSidebarProps {

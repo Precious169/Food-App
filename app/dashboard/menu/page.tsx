@@ -4,7 +4,6 @@ import { useState } from "react";
 import Header from "../../components/Header";
 import AppSidebar from "../../components/AppSidebar";
 
-// Menu items with reliable, consistent image URLs
 const menuItems = [
     {
         id: 1,
@@ -12,7 +11,7 @@ const menuItems = [
         description: "Crispy chicken breast with spicy coating, lettuce, and fiery mayo.",
         price: 5.99,
         category: "Burgers",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Cheeseburger.png/480px-Cheeseburger.png",
+        image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80",
         spicy: true
     },
     {
@@ -21,7 +20,7 @@ const menuItems = [
         description: "Our signature spicy breaded wings, cooked to golden perfection.",
         price: 4.49,
         category: "Chicken",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Chicken_Wings.jpg/640px-Chicken_Wings.jpg"
+        image: "https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=600&q=80"
     },
     {
         id: 3,
@@ -29,7 +28,7 @@ const menuItems = [
         description: "Tender chicken fillet in original recipe breading with mayo.",
         price: 5.49,
         category: "Burgers",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/280px-PNG_transparency_demonstration_1.png"
+        image: "https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=600&q=80"
     },
     {
         id: 4,
@@ -37,7 +36,7 @@ const menuItems = [
         description: "Bite-sized pieces of real chicken breast in crunchy coating.",
         price: 4.99,
         category: "Chicken",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Popcorn_chicken.jpg/640px-Popcorn_chicken.jpg"
+        image: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=600&q=80"
     },
     {
         id: 5,
@@ -45,7 +44,7 @@ const menuItems = [
         description: "Crispy veggie patty with fresh salad and classic sauce.",
         price: 5.29,
         category: "Burgers",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Veggie_burger.jpg/640px-Veggie_burger.jpg",
+        image: "https://images.unsplash.com/photo-1520072959219-c595dc870360?w=600&q=80",
         veggie: true
     },
     {
@@ -54,7 +53,7 @@ const menuItems = [
         description: "Golden, crispy potato fries lightly salted.",
         price: 2.49,
         category: "Sides",
-        image: "https://upload.wikimedia.org/wikipedia/commons/6/67/Fries_2.jpg"
+        image: "https://images.unsplash.com/photo-1576107232684-1279f390859f?w=600&q=80"
     },
     {
         id: 7,
@@ -62,7 +61,7 @@ const menuItems = [
         description: "Thick-cut onion rings in a beer batter coating.",
         price: 3.49,
         category: "Sides",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Onion_rings_mostly_eaten.jpg/640px-Onion_rings_mostly_eaten.jpg"
+        image: "https://images.unsplash.com/photo-1639024471283-03518883512d?w=600&q=80"
     },
     {
         id: 8,
@@ -70,7 +69,7 @@ const menuItems = [
         description: "Gooey mozzarella cheese in a herb-infused breadcrumb coating.",
         price: 3.99,
         category: "Sides",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Mozzarella_Sticks_%2816914569422%29.jpg/640px-Mozzarella_Sticks_%2816914569422%29.jpg"
+        image: "https://images.unsplash.com/photo-1548340748-6d2b7d7da280?w=600&q=80"
     },
     {
         id: 9,
@@ -78,7 +77,7 @@ const menuItems = [
         description: "Classic refreshing cola.",
         price: 1.99,
         category: "Drinks",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Glass_of_Cola.jpg/640px-Glass_of_Cola.jpg"
+        image: "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=600&q=80"
     },
     {
         id: 10,
@@ -86,7 +85,7 @@ const menuItems = [
         description: "Freshly blended mango with a splash of orange juice.",
         price: 3.99,
         category: "Drinks",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Mango_Lassi.jpg/640px-Mango_Lassi.jpg"
+        image: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=600&q=80"
     },
     {
         id: 11,
@@ -94,7 +93,7 @@ const menuItems = [
         description: "2pc chicken, 2pc wings, 1 small popcorn, regular fries & drink.",
         price: 8.99,
         category: "Deals",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/KFC_Original_Recipe_chicken_in_bucket.jpg/640px-KFC_Original_Recipe_chicken_in_bucket.jpg"
+        image: "https://images.unsplash.com/photo-1610614819513-58e34989848b?w=600&q=80"
     },
     {
         id: 12,
@@ -102,7 +101,7 @@ const menuItems = [
         description: "Tower burger, 1pc chicken, regular side, fries & drink.",
         price: 9.99,
         category: "Deals",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Chicken_burger_with_potato_wedges.jpg/640px-Chicken_burger_with_potato_wedges.jpg"
+        image: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=600&q=80"
     }
 ];
 
@@ -127,7 +126,7 @@ export default function PremiumMenuPage() {
     const trayTotal = tray.reduce((acc, t) => acc + t.price * t.qty, 0);
 
     return (
-        <div className="flex flex-col min-h-screen bg-background-light dark:bg-background-dark">
+        <div className="flex flex-col h-[100dvh] overflow-hidden bg-background-light dark:bg-background-dark">
             <Header />
             <AppSidebar>
                 {/* Inner layout: category sidebar + menu items + cart tray */}
