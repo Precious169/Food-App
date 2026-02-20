@@ -30,12 +30,12 @@ export default function Dashboard() {
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
                         <div>
                             <h1 className="text-4xl md:text-5xl font-black text-[#181112] dark:text-white mb-2">
-                                Welcome back, <span className="text-primary">{user.name === "Returning Member" ? "Friend" : user.name.split(' ')[0]}!</span>
+                                {user.isNewUser ? `Welcome, ${user.name}!` : `Welcome back, ${user.username || user.name}!`}
                             </h1>
                             <p className="text-[#886369] dark:text-[#a88d91] font-medium text-lg">Ready for some crispy goodness today?</p>
                         </div>
                         <div className="flex gap-4">
-                            <Link href="/menu" className="h-14 px-8 bg-primary text-white font-bold rounded-full flex items-center justify-center shadow-lg shadow-primary/20 hover:scale-105 transition-all outline-none">
+                            <Link href="/dashboard/menu" className="h-14 px-8 bg-primary text-white font-bold rounded-full flex items-center justify-center shadow-lg shadow-primary/20 hover:scale-105 transition-all outline-none">
                                 Order Now
                             </Link>
                         </div>

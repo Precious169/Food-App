@@ -42,8 +42,7 @@ export default function CartPage() {
     };
 
     const handleCheckout = () => {
-        // Mock checkout process
-        router.push("/order-tracking");
+        router.push("/checkout");
     };
 
     return (

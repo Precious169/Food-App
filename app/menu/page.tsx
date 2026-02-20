@@ -36,7 +36,7 @@ const menuItems = [
         description: "Bite-sized pieces of real chicken breast in crunchy coating.",
         price: "4.99",
         category: "Chicken",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAzybN_AwR_IYR_N57Es1yoSDqE8sFsQ88ZGZP0GVpyxmbz3cCXY41e6GWEJuQau-J7EoIX8iBYtNxBp2l4D2FYU9pibdIrBsTPnwpoqf8tbrhqzfr8WmBhbkbzUDDtAReEOQVNC-gGrNS-m1-cW7wKvFycSYXwaMZaJQ4V1oKqbAH20jCAJwLi6IltRWIQZb6MgPWQNHi5ix2wqSGDZL3EcupPY5dqCu-cnCSHOdXj9T55nwVyRpxHrQpLhBZRpBOJwapTPtbkN8sN"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fried_Chicken_Bucket.jpg/640px-Fried_Chicken_Bucket.jpg"
     },
     {
         id: 5,
@@ -44,7 +44,7 @@ const menuItems = [
         description: "Crispy veggie patty with fresh salad and classic sauce.",
         price: "5.29",
         category: "Burgers",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAW9U16Dhj3jkOVnpBAEphe67INuDh9jPPQkG3lHZasYpri2odT40awbdseck8tsJ-fhF1KTxaidm2ia3txbYyBjPwZojN1XTdwInTieBaqEOPfgmIbalohE90mSlhTC1fotKuAbmoMYjcl7b5Ww31G59NF_N4-MmefoayeZJiMwYzUxXpHiYBgsAjiIWDlIZa67mqxcGI5j2b9KeksLUyGLcHNGljydjVnr6eQIxW-btJlOOdFEtgwx78aX9OgfRafL-EMHDnIGNTH",
+        image: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Vegetarian_burger.jpg",
         veggie: true
     },
     {
@@ -85,7 +85,7 @@ const menuItems = [
         description: "Freshly blended mango with a splash of orange juice.",
         price: "3.99",
         category: "Drinks",
-        image: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Mango_Thick_Shake.JPG"
+        image: "https://upload.wikimedia.org/wikipedia/commons/7/77/Glass_of_Mango_Juice.jpg"
     },
     {
         id: 11,
@@ -93,7 +93,7 @@ const menuItems = [
         description: "2pc chicken, 2pc wings, 1 small popcorn, regular fries & drink.",
         price: "8.99",
         category: "Deals",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fried_Chicken_Bucket.jpg/640px-Fried_Chicken_Bucket.jpg"
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/KFC_Original_Recipe_chicken_in_bucket.jpg/640px-KFC_Original_Recipe_chicken_in_bucket.jpg"
     },
     {
         id: 12,

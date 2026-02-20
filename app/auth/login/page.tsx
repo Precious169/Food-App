@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
     const router = useRouter();
+    const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -14,7 +15,8 @@ export default function LoginPage() {
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
         // Mock login logic
-        sessionStorage.setItem("user", JSON.stringify({ ...formData, name: "Alexander Grant", isAuthenticated: true, isNewUser: false }));
+        sessionStorage.setItem("user", JSON.stringify({ ...formData, username: formData.email, name: formData.email, isAuthenticated: true, isNewUser: false }));
+        window.dispatchEvent(new Event("user-update"));
         router.push("/dashboard");
     };
 
@@ -27,11 +29,11 @@ export default function LoginPage() {
 
             <form onSubmit={handleLogin} className="flex flex-col gap-6">
                 <div className="flex flex-col gap-2">
-                    <label className="text-sm font-bold text-[#181112] dark:text-white px-1">Email Address</label>
+                    <label className="text-sm font-bold text-[#181112] dark:text-white px-1">Username</label>
                     <input
-                        type="email"
+                        type="text"
                         required
-                        placeholder="john@example.com"
+                        placeholder="alexgrant"
                         className="h-14 px-6 rounded-2xl bg-white dark:bg-[#1a0d0f] border border-[#e5dcdd] dark:border-[#3d2a2d] focus:border-primary outline-none transition-all dark:text-white"
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     />
@@ -42,13 +44,22 @@ export default function LoginPage() {
                         <label className="text-sm font-bold text-[#181112] dark:text-white px-1">Password</label>
                         <Link href="#" className="text-xs text-secondary font-bold hover:underline">Forgot Password?</Link>
                     </div>
-                    <input
-                        type="password"
-                        required
-                        placeholder="••••••••"
-                        className="h-14 px-6 rounded-2xl bg-white dark:bg-[#1a0d0f] border border-[#e5dcdd] dark:border-[#3d2a2d] focus:border-primary outline-none transition-all dark:text-white"
-                        onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                    />
+                    <div className="relative">
+                        <input
+                            type={showPassword ? "text" : "password"}
+                            required
+                            placeholder="••••••••"
+                            className="w-full h-14 px-6 rounded-2xl bg-white dark:bg-[#1a0d0f] border border-[#e5dcdd] dark:border-[#3d2a2d] focus:border-primary outline-none transition-all dark:text-white"
+                            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                        />
+                        <button
+                            type="button"
+                            onClick={() => setShowPassword(!showPassword)}
+                            className="absolute right-4 top-1/2 -translate-y-1/2 text-[#886369] hover:text-primary transition-colors"
+                        >
+                            <span className="material-symbols-outlined">{showPassword ? "visibility" : "visibility_off"}</span>
+                        </button>
+                    </div>
                 </div>
 
                 <button

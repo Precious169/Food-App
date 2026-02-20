@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 
 export default function SignupPage() {
     const router = useRouter();
+    const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -16,6 +17,7 @@ export default function SignupPage() {
         e.preventDefault();
         // Mock signup logic
         sessionStorage.setItem("user", JSON.stringify({ ...formData, isAuthenticated: true, isNewUser: true }));
+        window.dispatchEvent(new Event("user-update"));
         router.push("/auth/onboarding");
     };
 
@@ -51,13 +53,22 @@ export default function SignupPage() {
 
                 <div className="flex flex-col gap-2">
                     <label className="text-sm font-bold text-[#181112] dark:text-white px-1">Password</label>
-                    <input
-                        type="password"
-                        required
-                        placeholder="••••••••"
-                        className="h-14 px-6 rounded-2xl bg-white dark:bg-[#1a0d0f] border border-[#e5dcdd] dark:border-[#3d2a2d] focus:border-primary outline-none transition-all dark:text-white"
-                        onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                    />
+                    <div className="relative">
+                        <input
+                            type={showPassword ? "text" : "password"}
+                            required
+                            placeholder="••••••••"
+                            className="w-full h-14 px-6 rounded-2xl bg-white dark:bg-[#1a0d0f] border border-[#e5dcdd] dark:border-[#3d2a2d] focus:border-primary outline-none transition-all dark:text-white"
+                            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                        />
+                        <button
+                            type="button"
+                            onClick={() => setShowPassword(!showPassword)}
+                            className="absolute right-4 top-1/2 -translate-y-1/2 text-[#886369] hover:text-primary transition-colors"
+                        >
+                            <span className="material-symbols-outlined">{showPassword ? "visibility" : "visibility_off"}</span>
+                        </button>
+                    </div>
                 </div>
 
                 <button
