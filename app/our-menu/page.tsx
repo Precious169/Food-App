@@ -123,7 +123,11 @@ export default function OurMenuPage() {
             <Header />
             <main className="flex-1 p-6 md:p-10 max-w-7xl mx-auto w-full">
                 {/* Page Header */}
-                <div className="mb-8">
+                <div className="mb-6">
+                    <Link href="/" className="inline-flex items-center gap-2 text-primary font-bold hover:underline mb-4 transition-all">
+                        <span className="material-symbols-outlined text-xl">arrow_back</span>
+                        Back to Home
+                    </Link>
                     <h1 className="text-3xl font-black mb-2 text-[#181112] dark:text-white">Our Full Menu</h1>
                     <p className="text-[#886369]">Browse our full range of chicken, burgers, sides and drinks.</p>
                 </div>

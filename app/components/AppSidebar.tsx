@@ -45,7 +45,7 @@ export default function AppSidebar({ children, username, email }: AppSidebarProp
             )}
 
             {/* Sidebar */}
-            <aside className={`fixed xl:sticky top-[65px] xl:top-0 left-0 z-50 xl:z-auto h-full w-64 bg-white dark:bg-[#2d1a1c] border-r border-[#e5dcdd] dark:border-[#3d2a2d] flex flex-col flex-shrink-0 transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full xl:translate-x-0"}`}>
+            <aside className={`fixed xl:sticky top-[65px] xl:top-0 left-0 bottom-0 xl:bottom-auto z-50 xl:z-auto xl:h-[100dvh] w-64 bg-white dark:bg-[#2d1a1c] border-r border-[#e5dcdd] dark:border-[#3d2a2d] flex flex-col flex-shrink-0 transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full xl:translate-x-0"}`}>
                 {/* User Profile */}
                 {username && (
                     <div className="p-5 border-b border-[#e5dcdd] dark:border-[#3d2a2d]">
@@ -106,7 +106,9 @@ export default function AppSidebar({ children, username, email }: AppSidebarProp
                     </button>
                     <p className="font-bold text-sm text-[#886369]">Menu</p>
                 </div>
-                {children}
+                <div className="flex-1 flex flex-col pb-24 xl:pb-0">
+                    {children}
+                </div>
             </div>
         </div>
     );

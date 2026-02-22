@@ -77,16 +77,20 @@ export default function LocationPage() {
                                 </div>
 
                                 <div className="flex gap-3">
-                                    <button className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-primary text-white font-bold text-sm hover:bg-primary/90 transition-all">
-                                        <span className="material-symbols-outlined text-lg">map</span>
-                                        View on Map
+                                    <button className="flex-1 py-3 rounded-xl bg-primary text-white hover:bg-primary/90 transition-all text-center">
+                                        <div className="flex items-center justify-center gap-1.5 inline-flex font-bold text-sm">
+                                            <span className="material-symbols-outlined text-[20px]">map</span>
+                                            <span>View on Map</span>
+                                        </div>
                                     </button>
                                     <Link
                                         href="/dashboard/menu"
-                                        className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border border-primary text-primary font-bold text-sm hover:bg-primary hover:text-white transition-all"
+                                        className="flex-1 py-3 rounded-xl border border-primary text-primary hover:bg-primary hover:text-white transition-all text-center"
                                     >
-                                        <span className="material-symbols-outlined text-lg">restaurant_menu</span>
-                                        Order Here
+                                        <div className="flex items-center justify-center gap-1.5 inline-flex font-bold text-sm">
+                                            <span className="material-symbols-outlined text-[20px]">restaurant_menu</span>
+                                            <span>Order Here</span>
+                                        </div>
                                     </Link>
                                 </div>
                             </div>

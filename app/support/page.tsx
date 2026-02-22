@@ -38,10 +38,12 @@ export default function SupportPage() {
     ]);
     const [inputText, setInputText] = useState("");
     const [openFaq, setOpenFaq] = useState<number | null>(null);
-    const messagesEndRef = useRef<HTMLDivElement>(null);
+    const chatContainerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+        if (chatContainerRef.current) {
+            chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+        }
     }, [messages]);
 
     const handleSendMessage = (e: React.FormEvent) => {
@@ -126,7 +128,7 @@ export default function SupportPage() {
                             </div>
 
                             {/* Messages */}
-                            <div className="flex-1 overflow-y-auto p-5 space-y-4 bg-[#f8f5f2] dark:bg-[#261618]">
+                            <div ref={chatContainerRef} className="flex-1 overflow-y-auto p-5 space-y-4 bg-[#f8f5f2] dark:bg-[#261618] scroll-smooth">
                                 {messages.map((msg, index) => (
                                     <div key={index} className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
                                         <div className={`max-w-[80%] p-3.5 rounded-2xl text-sm ${msg.sender === "user"
@@ -137,7 +139,6 @@ export default function SupportPage() {
                                         </div>
                                     </div>
                                 ))}
-                                <div ref={messagesEndRef} />
                             </div>
 
                             {/* Input */}
