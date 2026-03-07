@@ -126,7 +126,7 @@ export default function PremiumMenuPage() {
     const trayTotal = tray.reduce((acc, t) => acc + t.price * t.qty, 0);
 
     return (
-        <div className="flex flex-col h-[100dvh] overflow-hidden bg-background-light dark:bg-background-dark">
+        <div className="flex flex-col min-h-screen bg-background-light dark:bg-background-dark">
             <Header />
             <AppSidebar>
                 {/* Inner layout: category sidebar + menu items + cart tray */}

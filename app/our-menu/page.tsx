@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 
 const menuItems = [
     {
@@ -216,7 +216,6 @@ export default function OurMenuPage() {
                     </div>
                 )}
             </main>
-            <Footer />
         </div>
     );
 }
