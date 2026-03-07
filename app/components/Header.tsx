@@ -134,65 +134,79 @@ export default function Header() {
                 )}
             </div>
 
-            {/* Mobile Menu Dropdown Overlay - Public Mode only */}
-            {!isAppMode && isMenuOpen && (
-                <div className="lg:hidden fixed inset-0 z-[1000] bg-white dark:bg-[#1a0d0f] animate-in fade-in slide-in-from-top-0 duration-300 flex flex-col pt-24 px-6 overflow-y-auto">
-                    <nav className="flex flex-col gap-2 mb-10">
-                        <Link className="flex items-center gap-5 py-5 border-b border-[#e5dcdd] dark:border-[#3d2a2d] text-xl font-black text-[#181112] dark:text-white active:text-primary transition-colors" href="/">
-                            <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
-                                <span className="material-symbols-outlined text-2xl">home</span>
+            {/* Mobile Menu Drawer (Public Mode only) */}
+            {!isAppMode && (
+                <>
+                    {/* Backdrop */}
+                    <div
+                        className={`lg:hidden fixed inset-0 bg-black/60 z-[900] transition-opacity duration-300 ${isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+                        onClick={() => setIsMenuOpen(false)}
+                    />
+                    
+                    {/* Drawer */}
+                    <div className={`lg:hidden fixed top-0 right-0 h-full w-[280px] z-[1000] bg-white dark:bg-[#1a0d0f] shadow-2xl transition-transform duration-300 ease-in-out flex flex-col ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
+                        {/* Drawer Header */}
+                        <div className="flex items-center justify-between p-6 border-b border-[#e5dcdd] dark:border-[#3d2a2d]">
+                            <div className="flex items-center gap-2 text-primary">
+                                <div className="size-6">
+                                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                        <path clipRule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" fill="currentColor" fillRule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <span className="text-sm font-black uppercase tracking-tight">MPR Foods</span>
                             </div>
-                            Home
-                        </Link>
-                        <Link className="flex items-center gap-5 py-5 border-b border-[#e5dcdd] dark:border-[#3d2a2d] text-xl font-black text-[#181112] dark:text-white active:text-primary transition-colors" href="/our-menu">
-                            <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
-                                <span className="material-symbols-outlined text-2xl">restaurant_menu</span>
-                            </div>
-                            Menu
-                        </Link>
-                        <Link className="flex items-center gap-5 py-5 border-b border-[#e5dcdd] dark:border-[#3d2a2d] text-xl font-black text-[#181112] dark:text-white active:text-primary transition-colors" href="/deals">
-                            <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
-                                <span className="material-symbols-outlined text-2xl">local_offer</span>
-                            </div>
-                            Deals
-                        </Link>
-                        <Link className="flex items-center gap-5 py-5 border-b border-[#e5dcdd] dark:border-[#3d2a2d] text-xl font-black text-[#181112] dark:text-white active:text-primary transition-colors" href="/location">
-                            <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
-                                <span className="material-symbols-outlined text-2xl">location_on</span>
-                            </div>
-                            Locations
-                        </Link>
-                        <Link className="flex items-center gap-5 py-5 border-b border-[#e5dcdd] dark:border-[#3d2a2d] text-xl font-black text-[#181112] dark:text-white active:text-primary transition-colors" href="/contact">
-                            <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
-                                <span className="material-symbols-outlined text-2xl">contact_mail</span>
-                            </div>
-                            Contact Us
-                        </Link>
+                            <button onClick={() => setIsMenuOpen(false)} className="size-9 flex items-center justify-center rounded-full bg-background-light dark:bg-background-dark text-[#181112] dark:text-white">
+                                <span className="material-symbols-outlined text-xl">close</span>
+                            </button>
+                        </div>
 
-                        {!isLoggedIn ? (
-                            <div className="flex flex-col gap-4 mt-10">
-                                <Link href="/auth/login" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center h-16 rounded-2xl bg-background-light dark:bg-background-dark border-2 border-primary text-primary font-black text-lg">
-                                    Log In
-                                </Link>
-                                <Link href="/auth/signup" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center h-16 rounded-2xl bg-primary text-white font-black text-lg shadow-xl shadow-primary/20">
-                                    Sign Up
-                                </Link>
-                            </div>
-                        ) : (
-                            <div className="flex flex-col gap-4 mt-10">
-                                <Link href="/dashboard" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center h-16 rounded-2xl bg-primary text-white font-black text-lg shadow-xl shadow-primary/20">
-                                    Go to Dashboard
-                                </Link>
-                                <button
-                                    onClick={() => { handleLogout(); setIsMenuOpen(false); }}
-                                    className="flex items-center justify-center h-16 rounded-2xl bg-background-light dark:bg-background-dark border-2 border-red-500 text-red-500 font-black text-lg"
+                        {/* Drawer Content */}
+                        <nav className="flex flex-col p-4 overflow-y-auto">
+                            {[
+                                { href: "/", label: "Home", icon: "home" },
+                                { href: "/our-menu", label: "Menu", icon: "restaurant_menu" },
+                                { href: "/deals", label: "Deals", icon: "local_offer" },
+                                { href: "/location", label: "Locations", icon: "location_on" },
+                                { href: "/contact", label: "Contact Us", icon: "contact_mail" },
+                            ].map((link) => (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    onClick={() => setIsMenuOpen(false)}
+                                    className="flex items-center gap-4 px-4 py-4 rounded-xl text-base font-bold text-[#181112] dark:text-white hover:bg-primary/5 hover:text-primary transition-all"
                                 >
-                                    Log Out
-                                </button>
+                                    <span className="material-symbols-outlined text-primary text-xl">{link.icon}</span>
+                                    {link.label}
+                                </Link>
+                            ))}
+
+                            <div className="mt-6 pt-6 border-t border-[#e5dcdd] dark:border-[#3d2a2d] px-4">
+                                {!isLoggedIn ? (
+                                    <div className="flex flex-col gap-3">
+                                        <Link href="/auth/login" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center h-12 rounded-xl bg-background-light dark:bg-background-dark border border-[#e5dcdd] dark:border-[#3d2a2d] text-[#181112] dark:text-white font-bold text-sm">
+                                            Log In
+                                        </Link>
+                                        <Link href="/auth/signup" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center h-12 rounded-xl bg-primary text-white font-bold text-sm shadow-lg shadow-primary/20">
+                                            Sign Up
+                                        </Link>
+                                    </div>
+                                ) : (
+                                    <div className="flex flex-col gap-3">
+                                        <Link href="/dashboard" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center h-12 rounded-xl bg-primary text-white font-bold text-sm shadow-lg shadow-primary/20">
+                                            Dashboard
+                                        </Link>
+                                        <button
+                                            onClick={() => { handleLogout(); setIsMenuOpen(false); }}
+                                            className="flex items-center justify-center h-12 rounded-xl bg-background-light dark:bg-background-dark border border-red-500/20 text-red-500 font-bold text-sm"
+                                        >
+                                            Log Out
+                                        </button>
+                                    </div>
+                                )}
                             </div>
-                        )}
-                    </nav>
-                </div>
+                        </nav>
+                    </div>
+                </>
             )}
         </header>
     );

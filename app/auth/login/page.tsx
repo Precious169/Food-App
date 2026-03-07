@@ -21,7 +21,11 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="bg-white/80 dark:bg-[#2d1a1c]/80 backdrop-blur-xl border border-white/20 dark:border-white/10 p-10 rounded-[2.5rem] shadow-2xl">
+        <div className="relative bg-white/80 dark:bg-[#2d1a1c]/80 backdrop-blur-xl border border-white/20 dark:border-white/10 p-10 rounded-[2.5rem] shadow-2xl">
+            <Link href="/" className="absolute top-6 left-6 flex items-center gap-2 text-[#886369] hover:text-primary transition-colors font-bold text-sm group">
+                <span className="material-symbols-outlined text-lg group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                Back to Home
+            </Link>
             <div className="text-center mb-10">
                 <h1 className="text-4xl font-black mb-3 text-[#181112] dark:text-white">Welcome Back</h1>
                 <p className="text-[#886369] dark:text-[#a88d91]">Your favorite chicken is just a login away!</p>

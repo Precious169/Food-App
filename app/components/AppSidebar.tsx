@@ -9,7 +9,7 @@ const sidebarLinks = [
     { href: "/dashboard/menu", icon: "restaurant_menu", label: "Order Food" },
     { href: "/cart", icon: "shopping_cart", label: "My Cart" },
     { href: "/order-tracking", icon: "local_shipping", label: "Track Order" },
-    { href: "/deals", icon: "local_offer", label: "Deals & Offers" },
+    { href: "/dashboard/deals", icon: "local_offer", label: "Deals & Offers" },
     { href: "/menu", icon: "menu_book", label: "Full Menu" },
     { href: "/support", icon: "support_agent", label: "Customer Support" },
     { href: "/contact", icon: "contact_mail", label: "Contact Us" },
