@@ -69,17 +69,11 @@ export default function CheckoutPage() {
             <Header />
             <AppSidebar username={user?.name || user?.username} email={user?.email}>
                 <main className="flex-1 max-w-7xl mx-auto w-full px-4 md:px-10 py-10">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-                        <div className="flex items-center gap-3">
-                            <Link href="/cart" className="w-10 h-10 rounded-full bg-white dark:bg-[#2d1a1c] border border-[#e5dcdd] dark:border-[#3d2a2d] flex items-center justify-center text-[#886369] hover:text-primary transition-all shadow-sm">
-                                <span className="material-symbols-outlined text-xl">arrow_back</span>
-                            </Link>
-                            <h1 className="text-3xl font-black text-[#181112] dark:text-white">Checkout</h1>
-                        </div>
-                        <Link href="/dashboard" className="flex items-center gap-2 text-sm font-bold text-secondary hover:text-primary transition-colors group">
-                            <span className="material-symbols-outlined text-xl group-hover:-translate-x-1 transition-transform">dashboard_customize</span>
-                            Back to Dashboard
+                    <div className="flex items-center gap-3 mb-8">
+                        <Link href="/cart" className="w-10 h-10 rounded-full bg-white dark:bg-[#2d1a1c] border border-[#e5dcdd] dark:border-[#3d2a2d] flex items-center justify-center text-[#886369] hover:text-primary transition-all shadow-sm">
+                            <span className="material-symbols-outlined text-xl">arrow_back</span>
                         </Link>
+                        <h1 className="text-3xl font-black text-[#181112] dark:text-white">Checkout</h1>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
