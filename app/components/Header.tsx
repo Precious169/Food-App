@@ -70,11 +70,28 @@ export default function Header() {
             {!isAppMode && (
                 <div className={`hidden lg:flex items-center transition-opacity duration-300 ${!mounted ? 'opacity-0' : 'opacity-100'}`}>
                     <nav className="flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-                        <Link className="text-[#181112] dark:text-white text-sm font-semibold hover:text-primary transition-colors" href="/">Home</Link>
-                        <Link className="text-[#181112] dark:text-white text-sm font-semibold hover:text-primary transition-colors" href="/our-menu">Menu</Link>
-                        <Link className="text-[#181112] dark:text-white text-sm font-semibold hover:text-primary transition-colors" href="/deals">Deals</Link>
-                        <Link className="text-[#181112] dark:text-white text-sm font-semibold hover:text-primary transition-colors" href="/location">Locations</Link>
-                        <Link className="text-[#181112] dark:text-white text-sm font-semibold hover:text-primary transition-colors" href="/contact">Contact Us</Link>
+                        {[
+                            { href: "/", label: "Home" },
+                            { href: "/our-menu", label: "Menu" },
+                            { href: "/deals", label: "Deals" },
+                            { href: "/location", label: "Locations" },
+                            { href: "/contact", label: "Contact Us" },
+                        ].map((link) => {
+                            const isActive = pathname === link.href;
+                            return (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    className={`relative text-sm font-bold transition-all duration-300 ${isActive ? "text-primary" : "text-[#181112] dark:text-white hover:text-primary"
+                                        }`}
+                                >
+                                    {link.label}
+                                    {isActive && (
+                                        <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full animate-in fade-in zoom-in duration-300"></span>
+                                    )}
+                                </Link>
+                            );
+                        })}
                     </nav>
                 </div>
             )}
@@ -115,15 +132,6 @@ export default function Header() {
                     </div>
                 )}
 
-                {/* User Menu / Logout (App Mode Desktop) */}
-                {isAppMode && (
-                    <div className="hidden md:flex items-center gap-3 ml-2 border-l border-[#e5dcdd] dark:border-[#3d2a2d] pl-5">
-                        <div className="text-right">
-                            <p className="text-sm font-black text-[#181112] dark:text-white">{user?.username || user?.name}</p>
-                            <button onClick={handleLogout} className="text-[11px] font-bold text-primary hover:underline uppercase tracking-wider">Log Out</button>
-                        </div>
-                    </div>
-                )}
 
                 {/* Mobile Menu Toggle - Public Mode only */}
                 {!isAppMode && (

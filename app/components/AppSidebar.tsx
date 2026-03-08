@@ -33,7 +33,7 @@ export default function AppSidebar({ children, username, email }: AppSidebarProp
     };
 
     return (
-        <div className="flex flex-1 overflow-hidden min-h-[calc(100vh-65px)]">
+        <div className="flex flex-1 overflow-hidden min-h-[calc(100vh-65px)] bg-background-light dark:bg-background-dark">
             {/* Mobile overlay */}
             {sidebarOpen && (
                 <div
@@ -43,7 +43,7 @@ export default function AppSidebar({ children, username, email }: AppSidebarProp
             )}
 
             {/* Sidebar */}
-            <aside className={`fixed xl:sticky top-[65px] xl:top-[73px] left-0 bottom-0 xl:bottom-0 z-50 xl:z-auto xl:h-[calc(100vh-73px)] w-64 bg-white dark:bg-[#2d1a1c] border-r border-[#e5dcdd] dark:border-[#3d2a2d] flex flex-col flex-shrink-0 transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full xl:translate-x-0"}`}>
+            <aside className={`fixed xl:sticky top-0 left-0 bottom-0 z-50 xl:z-auto xl:h-screen w-64 bg-white dark:bg-[#2d1a1c] border-r border-[#e5dcdd] dark:border-[#3d2a2d] flex flex-col flex-shrink-0 transition-transform duration-300 xl:pt-[65px] ${sidebarOpen ? "translate-x-0" : "-translate-x-full xl:translate-x-0"}`}>
                 {/* User Profile */}
                 {username && (
                     <div className="p-5 border-b border-[#e5dcdd] dark:border-[#3d2a2d]">
