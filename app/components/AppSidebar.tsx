@@ -33,17 +33,20 @@ export default function AppSidebar({ children, username, email }: AppSidebarProp
     };
 
     return (
-        <div className="flex flex-1 overflow-hidden min-h-[calc(100vh-65px)] bg-background-light dark:bg-background-dark">
+        <div className="flex flex-1 h-[calc(100vh-65px)] overflow-hidden bg-background-light dark:bg-background-dark relative">
             {/* Mobile overlay */}
             {sidebarOpen && (
                 <div
-                    className="fixed inset-0 bg-black/50 z-40 xl:hidden"
+                    className="fixed inset-0 bg-black/50 z-[60] xl:hidden"
                     onClick={() => setSidebarOpen(false)}
                 />
             )}
 
             {/* Sidebar */}
-            <aside className={`fixed xl:sticky top-0 left-0 bottom-0 z-50 xl:z-auto xl:h-screen w-64 bg-white dark:bg-[#2d1a1c] border-r border-[#e5dcdd] dark:border-[#3d2a2d] flex flex-col flex-shrink-0 transition-transform duration-300 xl:pt-[65px] ${sidebarOpen ? "translate-x-0" : "-translate-x-full xl:translate-x-0"}`}>
+            <aside className={`fixed xl:relative top-0 left-0 bottom-0 z-50 xl:z-0 xl:h-full w-64 bg-white dark:bg-[#2d1a1c] border-r border-[#e5dcdd] dark:border-[#3d2a2d] flex flex-col flex-shrink-0 transition-transform duration-300 xl:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}>
+                {/* Mobile placeholder for header height (on mobile sidebar covers full screen) */}
+                <div className="h-[65px] xl:hidden flex-shrink-0" />
+                
                 {/* User Profile */}
                 {username && (
                     <div className="p-5 border-b border-[#e5dcdd] dark:border-[#3d2a2d]">
@@ -60,7 +63,7 @@ export default function AppSidebar({ children, username, email }: AppSidebarProp
                 )}
 
                 {/* Navigation */}
-                <nav className="flex-1 overflow-y-auto p-3 space-y-0.5">
+                <nav className="flex-1 overflow-y-auto p-3 space-y-0.5 custom-scrollbar">
                     <p className="text-xs font-bold uppercase tracking-widest text-[#886369] px-3 py-2 pt-3">Navigation</p>
                     {sidebarLinks.map((link) => {
                         const isActive = pathname === link.href;
@@ -89,11 +92,10 @@ export default function AppSidebar({ children, username, email }: AppSidebarProp
                         Sign Out
                     </button>
                 </nav>
-
             </aside>
 
-            {/* Page Content */}
-            <div className="flex-1 flex flex-col overflow-y-auto min-w-0">
+            {/* Page Content area which scrolls independently */}
+            <div className="flex-1 flex flex-col min-w-0 h-full overflow-y-auto relative bg-background-light dark:bg-background-dark custom-scrollbar">
                 {/* Mobile sidebar toggle bar */}
                 <div className="xl:hidden flex items-center gap-4 px-5 py-3 border-b border-[#e5dcdd] dark:border-[#3d2a2d] bg-white dark:bg-[#2d1a1c] flex-shrink-0">
                     <button
@@ -104,7 +106,8 @@ export default function AppSidebar({ children, username, email }: AppSidebarProp
                     </button>
                     <p className="font-bold text-sm text-[#886369]">Menu</p>
                 </div>
-                <div className="flex-1 flex flex-col pb-24 xl:pb-0">
+                
+                <div className="flex-1 flex flex-col pb-24 xl:pb-10">
                     {children}
                 </div>
             </div>
