@@ -51,7 +51,7 @@ export default function Header() {
     const isLoggedIn = mounted && !!user;
 
     // Define which routes are part of the "main app"
-    const appRoutes = ["/dashboard", "/menu", "/cart", "/order-tracking", "/support", "/settings"];
+    const appRoutes = ["/dashboard", "/cart", "/checkout", "/order-tracking", "/settings"];
     const isAppMode = isLoggedIn && appRoutes.some(route => pathname.startsWith(route));
 
     return (
@@ -79,17 +79,19 @@ export default function Header() {
                 </div>
             )}
 
-            {/* Search Bar - Shown primarily in App Mode, or right side in Public Mode desktop */}
-            <div className={`flex flex-1 items-center justify-end md:justify-center gap-4 px-4 ${isAppMode ? 'md:max-w-xl mx-auto' : 'max-w-xs ml-auto hidden lg:flex'}`}>
-                <label className="flex flex-col w-full !h-10">
-                    <div className="flex w-full flex-1 items-stretch rounded-full h-full border border-[#e5dcdd] dark:border-[#3d2a2d] bg-white dark:bg-[#2d1a1c] overflow-hidden focus-within:border-primary transition-all">
-                        <div className="text-[#886369] flex items-center justify-center pl-4">
-                            <span className="material-symbols-outlined text-xl">search</span>
+            {/* Search Bar - ONLY in App Mode */}
+            {isAppMode && (
+                <div className="flex flex-1 items-center justify-center gap-4 px-4 md:max-w-xl mx-auto">
+                    <label className="flex flex-col w-full !h-10">
+                        <div className="flex w-full flex-1 items-stretch rounded-full h-full border border-[#e5dcdd] dark:border-[#3d2a2d] bg-white dark:bg-[#2d1a1c] overflow-hidden focus-within:border-primary transition-all">
+                            <div className="text-[#886369] flex items-center justify-center pl-4">
+                                <span className="material-symbols-outlined text-xl">search</span>
+                            </div>
+                            <input className="flex w-full min-w-0 flex-1 border-none bg-transparent focus:ring-0 text-[#181112] dark:text-white placeholder:text-[#886369] px-3 text-sm font-medium" placeholder="Search for food, deals..." />
                         </div>
-                        <input className="flex w-full min-w-0 flex-1 border-none bg-transparent focus:ring-0 text-[#181112] dark:text-white placeholder:text-[#886369] px-3 text-sm font-medium" placeholder="Search for food, deals..." />
-                    </div>
-                </label>
-            </div>
+                    </label>
+                </div>
+            )}
 
             {/* Right side actions */}
             <div className="flex items-center gap-3 z-[110]">
