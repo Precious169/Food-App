@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import AppSidebar from "../components/AppSidebar";
 import Link from "next/link";
@@ -28,7 +28,7 @@ export default function CartPage() {
     const [isLoaded, setIsLoaded] = useState(false);
     const router = useRouter();
 
-    useState(() => {
+    useEffect(() => {
         if (typeof window !== "undefined") {
             const savedCart = sessionStorage.getItem("cart");
             if (savedCart) {
@@ -36,9 +36,9 @@ export default function CartPage() {
             }
             setIsLoaded(true);
         }
-    });
+    }, []);
 
-    const subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity || item.price * item.qty), 0);
+    const subtotal = cart.reduce((acc, item) => acc + (item.price * (item.quantity || item.qty || 0)), 0);
     const deliveryFee = 2.50;
     const total = subtotal + deliveryFee;
 
