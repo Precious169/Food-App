@@ -26,7 +26,7 @@ export default function LoginPage() {
                 <span className="material-symbols-outlined text-lg group-hover:-translate-x-1 transition-transform">arrow_back</span>
                 Back to Home
             </Link>
-            <div className="text-center mb-10">
+            <div className="text-center mb-10 pt-16">
                 <h1 className="text-4xl font-black mb-3 text-[#181112] dark:text-white">Welcome Back</h1>
                 <p className="text-[#886369] dark:text-[#a88d91]">Your favorite chicken is just a login away!</p>
             </div>

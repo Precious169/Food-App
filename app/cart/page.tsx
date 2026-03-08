@@ -83,24 +83,29 @@ export default function CartPage() {
                             {cart.length > 0 ? (
                                 <div className="flex flex-col gap-4">
                                     {cart.map((item) => (
-                                        <div key={item.id} className="bg-white dark:bg-[#2d1a1c] p-5 rounded-3xl border border-[#e5dcdd] dark:border-[#3d2a2d] flex items-center gap-5 group">
-                                            <div className="w-20 h-20 rounded-2xl bg-cover bg-center shrink-0" style={{ backgroundImage: `url("${item.image}")` }}></div>
-                                            <div className="flex-1 min-w-0">
-                                                <h3 className="text-base font-bold truncate">{item.name}</h3>
-                                                <p className="text-primary font-black mt-0.5">£{item.price.toFixed(2)}</p>
+                                        <div key={item.id} className="bg-white dark:bg-[#2d1a1c] p-4 md:p-6 rounded-[2rem] border border-[#e5dcdd] dark:border-[#3d2a2d] flex flex-col md:flex-row items-center gap-4 md:gap-6 group transition-all hover:border-primary/30 shadow-sm hover:shadow-md">
+                                            <div className="w-24 h-24 md:w-20 md:h-20 rounded-2xl bg-cover bg-center shrink-0 shadow-inner" style={{ backgroundImage: `url("${item.image}")` }}></div>
+                                            
+                                            <div className="flex-1 min-w-0 text-center md:text-left">
+                                                <h3 className="text-base md:text-lg font-black truncate text-[#181112] dark:text-white">{item.name}</h3>
+                                                <p className="text-primary font-black text-lg mt-1">£{(item.price || 0).toFixed(2)}</p>
                                             </div>
-                                            <div className="flex items-center gap-2 bg-background-light dark:bg-background-dark p-1 rounded-2xl border border-[#e5dcdd] dark:border-[#3d2a2d] shrink-0">
-                                                <button onClick={() => updateQuantity(item.id, -1)} className="size-8 rounded-xl flex items-center justify-center hover:bg-white dark:hover:bg-[#2d1a1c] transition-colors border border-transparent active:border-primary/20">
-                                                    <span className="material-symbols-outlined text-base">remove</span>
-                                                </button>
-                                                <span className="font-black w-8 text-center text-sm tabular-nums">{item.qty || item.quantity}</span>
-                                                <button onClick={() => updateQuantity(item.id, 1)} className="size-8 rounded-xl flex items-center justify-center hover:bg-white dark:hover:bg-[#2d1a1c] transition-colors border border-transparent active:border-primary/20">
-                                                    <span className="material-symbols-outlined text-base">add</span>
+
+                                            <div className="flex items-center gap-6 md:gap-4 shrink-0 mt-2 md:mt-0">
+                                                <div className="flex items-center gap-2 bg-background-light dark:bg-background-dark p-1 rounded-2xl border border-[#e5dcdd] dark:border-[#3d2a2d]">
+                                                    <button onClick={() => updateQuantity(item.id, -1)} className="size-9 md:size-8 rounded-xl flex items-center justify-center hover:bg-white dark:hover:bg-[#2d1a1c] transition-colors border border-transparent active:border-primary/20">
+                                                        <span className="material-symbols-outlined text-base">remove</span>
+                                                    </button>
+                                                    <span className="font-black w-8 text-center text-sm tabular-nums text-[#181112] dark:text-white">{item.qty || item.quantity}</span>
+                                                    <button onClick={() => updateQuantity(item.id, 1)} className="size-9 md:size-8 rounded-xl flex items-center justify-center hover:bg-white dark:hover:bg-[#2d1a1c] transition-colors border border-transparent active:border-primary/20">
+                                                        <span className="material-symbols-outlined text-base">add</span>
+                                                    </button>
+                                                </div>
+                                                
+                                                <button onClick={() => removeItem(item.id)} className="size-10 flex items-center justify-center text-[#886369] hover:text-primary transition-all rounded-xl hover:bg-primary/5">
+                                                    <span className="material-symbols-outlined">delete</span>
                                                 </button>
                                             </div>
-                                            <button onClick={() => removeItem(item.id)} className="text-[#886369] hover:text-primary transition-colors p-1">
-                                                <span className="material-symbols-outlined">delete</span>
-                                            </button>
                                         </div>
                                     ))}
                                 </div>
