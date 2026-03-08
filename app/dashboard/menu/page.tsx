@@ -118,9 +118,28 @@ export default function PremiumMenuPage() {
     const addToTray = (item: typeof menuItems[0]) => {
         setTray(prev => {
             const existing = prev.find(t => t.id === item.id);
-            if (existing) return prev.map(t => t.id === item.id ? { ...t, qty: t.qty + 1 } : t);
-            return [...prev, { id: item.id, name: item.name, price: item.price, qty: 1 }];
+            let newTray;
+            if (existing) {
+                newTray = prev.map(t => t.id === item.id ? { ...t, qty: t.qty + 1 } : t);
+            } else {
+                newTray = [...prev, { id: item.id, name: item.name, price: item.price, qty: 1, image: item.image }];
+            }
+            // Sync with global cart for the Cart page
+            sessionStorage.setItem("cart", JSON.stringify(newTray));
+            return newTray;
         });
+
+        // Simple feedback
+        const btn = document.getElementById(`add-btn-${item.id}`);
+        if (btn) {
+            const originalText = btn.innerHTML;
+            btn.classList.add("bg-green-600", "text-white");
+            btn.innerHTML = '<span class="material-symbols-outlined text-base">check</span> Added';
+            setTimeout(() => {
+                btn.classList.remove("bg-green-600", "text-white");
+                btn.innerHTML = originalText;
+            }, 1500);
+        }
     };
 
     const trayTotal = tray.reduce((acc, t) => acc + t.price * t.qty, 0);
@@ -181,6 +200,7 @@ export default function PremiumMenuPage() {
                                         </div>
                                         <p className="text-xs text-[#886369] line-clamp-2 mb-4 flex-1">{item.description}</p>
                                         <button
+                                            id={`add-btn-${item.id}`}
                                             onClick={() => addToTray(item)}
                                             className="w-full h-9 bg-background-light dark:bg-background-dark text-[#181112] dark:text-white font-bold rounded-xl hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-1.5 text-sm"
                                         >

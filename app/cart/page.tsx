@@ -24,30 +24,55 @@ const initialCart = [
 ];
 
 export default function CartPage() {
-    const [cart, setCart] = useState(initialCart);
+    const [cart, setCart] = useState<any[]>([]);
+    const [isLoaded, setIsLoaded] = useState(false);
     const router = useRouter();
 
-    const subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+    useState(() => {
+        if (typeof window !== "undefined") {
+            const savedCart = sessionStorage.getItem("cart");
+            if (savedCart) {
+                setCart(JSON.parse(savedCart));
+            }
+            setIsLoaded(true);
+        }
+    });
+
+    const subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity || item.price * item.qty), 0);
     const deliveryFee = 2.50;
     const total = subtotal + deliveryFee;
 
     const updateQuantity = (id: number, delta: number) => {
-        setCart(prev => prev.map(item =>
-            item.id === id ? { ...item, quantity: Math.max(1, item.quantity + delta) } : item
-        ));
+        setCart(prev => {
+            const newCart = prev.map(item => {
+                if (item.id === id) {
+                    const currentQty = item.qty || item.quantity || 1;
+                    return { ...item, qty: Math.max(1, currentQty + delta), quantity: Math.max(1, currentQty + delta) };
+                }
+                return item;
+            });
+            sessionStorage.setItem("cart", JSON.stringify(newCart));
+            return newCart;
+        });
     };
 
     const removeItem = (id: number) => {
-        setCart(prev => prev.filter(item => item.id !== id));
+        setCart(prev => {
+            const newCart = prev.filter(item => item.id !== id);
+            sessionStorage.setItem("cart", JSON.stringify(newCart));
+            return newCart;
+        });
     };
+
+    if (!isLoaded) return null;
 
     return (
         <div className="flex flex-col min-h-screen bg-background-light dark:bg-background-dark">
             <Header />
             <AppSidebar>
                 <main className="flex-1 p-6 md:p-10">
-                    <h1 className="text-3xl font-black mb-2 flex items-center gap-3">
-                        Your Basket
+                    <h1 className="text-3xl font-black mb-2 flex items-center gap-3 text-[#181112] dark:text-white">
+                        Your Cart
                         <span className="text-base font-bold bg-primary/10 text-primary px-3 py-1 rounded-full">{cart.length} Items</span>
                     </h1>
                     <p className="text-[#886369] mb-8">Review your items and proceed to checkout.</p>
@@ -64,13 +89,13 @@ export default function CartPage() {
                                                 <h3 className="text-base font-bold truncate">{item.name}</h3>
                                                 <p className="text-primary font-black mt-0.5">£{item.price.toFixed(2)}</p>
                                             </div>
-                                            <div className="flex items-center gap-3 bg-background-light dark:bg-background-dark p-1.5 rounded-2xl border border-[#e5dcdd] dark:border-[#3d2a2d]">
-                                                <button onClick={() => updateQuantity(item.id, -1)} className="w-7 h-7 rounded-lg flex items-center justify-center hover:bg-white dark:hover:bg-[#2d1a1c] transition-colors">
-                                                    <span className="material-symbols-outlined text-sm">remove</span>
+                                            <div className="flex items-center gap-2 bg-background-light dark:bg-background-dark p-1 rounded-2xl border border-[#e5dcdd] dark:border-[#3d2a2d] shrink-0">
+                                                <button onClick={() => updateQuantity(item.id, -1)} className="size-8 rounded-xl flex items-center justify-center hover:bg-white dark:hover:bg-[#2d1a1c] transition-colors border border-transparent active:border-primary/20">
+                                                    <span className="material-symbols-outlined text-base">remove</span>
                                                 </button>
-                                                <span className="font-bold w-4 text-center text-sm">{item.quantity}</span>
-                                                <button onClick={() => updateQuantity(item.id, 1)} className="w-7 h-7 rounded-lg flex items-center justify-center hover:bg-white dark:hover:bg-[#2d1a1c] transition-colors">
-                                                    <span className="material-symbols-outlined text-sm">add</span>
+                                                <span className="font-black w-8 text-center text-sm tabular-nums">{item.qty || item.quantity}</span>
+                                                <button onClick={() => updateQuantity(item.id, 1)} className="size-8 rounded-xl flex items-center justify-center hover:bg-white dark:hover:bg-[#2d1a1c] transition-colors border border-transparent active:border-primary/20">
+                                                    <span className="material-symbols-outlined text-base">add</span>
                                                 </button>
                                             </div>
                                             <button onClick={() => removeItem(item.id)} className="text-[#886369] hover:text-primary transition-colors p-1">
@@ -81,8 +106,8 @@ export default function CartPage() {
                                 </div>
                             ) : (
                                 <div className="flex flex-col items-center justify-center py-20 bg-white dark:bg-[#2d1a1c] rounded-[2rem] border border-[#e5dcdd] dark:border-[#3d2a2d]">
-                                    <span className="material-symbols-outlined text-6xl text-[#e5dcdd] mb-4">shopping_basket</span>
-                                    <h3 className="text-2xl font-bold mb-2">Your basket is empty</h3>
+                                    <span className="material-symbols-outlined text-6xl text-[#e5dcdd] mb-4">shopping_cart</span>
+                                    <h3 className="text-2xl font-bold mb-2">Your cart is empty</h3>
                                     <p className="text-[#886369] mb-8">Hungry? Add some delicious items to your basket!</p>
                                     <Link href="/dashboard/menu" className="h-12 px-10 bg-primary text-white font-bold rounded-full flex items-center justify-center shadow-lg">
                                         Browse Menu

@@ -72,19 +72,23 @@ export default function AppDealsPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                         {dealsData.map((deal) => (
-                            <div key={deal.id} className={`bg-gradient-to-r ${deal.gradient} p-8 md:p-10 rounded-3xl text-white relative overflow-hidden group shadow-xl`}>
-                                <span className="absolute top-6 right-6 bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">{deal.badge}</span>
-                                <h3 className="text-3xl font-black mb-3">{deal.title}</h3>
-                                <p className="text-white/90 mb-8 text-base leading-relaxed">{deal.description}</p>
-                                <div className="flex flex-wrap items-center gap-6">
-                                    <div className="bg-white/10 backdrop-blur-md border border-white/30 px-5 py-3 rounded-2xl">
-                                        <p className="text-xs text-white/70 mb-1 font-bold uppercase tracking-widest">Promo Code</p>
-                                        <p className="font-black text-white text-xl tracking-widest">{deal.code}</p>
+                            <div key={deal.id} className={`bg-gradient-to-r ${deal.gradient} p-6 md:p-10 rounded-3xl text-white relative overflow-hidden group shadow-xl flex flex-col justify-between min-h-[320px] md:min-h-0`}>
+                                <div className="relative z-10 text-left">
+                                    <span className="inline-block mb-4 bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">{deal.badge}</span>
+                                    <h3 className="text-2xl md:text-3xl font-black mb-3 leading-tight">{deal.title}</h3>
+                                    <p className="text-white/90 mb-6 text-sm md:text-base leading-relaxed line-clamp-3 md:line-clamp-none">{deal.description}</p>
+                                </div>
+                                <div className="relative z-10 flex flex-wrap items-center gap-4 md:gap-6 mt-6">
+                                    <div className="bg-white/10 backdrop-blur-md border border-white/30 px-4 py-2 rounded-2xl">
+                                        <p className="text-[10px] text-white/70 mb-0.5 font-bold uppercase tracking-widest">Promo Code</p>
+                                        <p className="font-black text-white text-lg tracking-widest">{deal.code}</p>
                                     </div>
-                                    <button className={`bg-white ${deal.textColor} font-black px-8 py-4 rounded-full hover:scale-105 transition-all text-base shadow-lg`}>
+                                    <button className={`bg-white ${deal.textColor} font-black px-6 py-3 md:px-8 md:py-4 rounded-full hover:scale-105 transition-all text-sm md:text-base shadow-lg whitespace-nowrap`}>
                                         Apply Now
                                     </button>
                                 </div>
+                                {/* Subtle decorative element to prevent visual overlap */}
+                                <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
                             </div>
                         ))}
                     </div>
